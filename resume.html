@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We Code We Sketch</title>
+    <title>Resume | We Code We Sketch</title>
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -21,31 +21,30 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-
 <!-- Classes on body set to work with mt-auto on footer to ensure it always stays at the bottom of the page -->
 <body class="d-flex flex-column min-vh-100 custom-display">
 
 <!--Navigation Section-->
 
-<nav class="navbar navbar-expand-sm bg-body-tertiary ms-auto z-index">
-    <div class="container">
-             <a class="navbar-brand" href="index.html">
-                <!-- Logo image -->
-<img src="assets/favicon/android-chrome-192x192.png" alt="logo" class="logo-image">
-<span class="logo-text text-center">We Code We Sketch</span>
+<nav class="navbar navbar-expand-sm bg-body-tertiary z-index">
+           <div class="container"> 
+    <a class="navbar-brand" href="index.html">
+        <!-- Logo image -->
+                <img src="assets/favicon/android-chrome-192x192.png" alt="logo" class="logo-image">
+                <span class="logo-text text-center">Resume</span>
              </a>
-           
+
  <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
     </button>
 
-     <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="resume.html">Resume</a>
+                <a class="nav-link active" href="resume.html">Resume</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#projects">Projects</a>
@@ -59,12 +58,21 @@
   </nav>
 
 
-<!--Main Section-->
+<!--Main Section/Resume section-->
 
+<section class="container my-5">
+  <h2 class="text-center">My Resume</h2>
+  <p class="lead text-center">A mix of tech skills, artistic talent, and dedication to excellence.</p>
+  <div class="text-center my-4">
+    <a href="assets/files/Forest-CV.pdf" class="btn btn-primary" download>
+      <i class="fas fa-download"></i> Download My CV
+    </a>
+  </div>
+</section>
 
 <!--Footer Section-->
 
-<footer id="download " class="custom-edit">
+<footer id="download" class="custom-edit">
     &copy; 2025 We Code We Sketch — Custom code and creative design.<br />
     Built with <strong>Bootstrap</strong> for flexibility, responsiveness, and ease of layout design.
   </footer>

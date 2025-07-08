@@ -1,3 +1,99 @@
-header {
-    background-color: blue;
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/* Asterisk wildcard selector to override default styles added by the browser */
+* {
+    padding: 0; /* Reset padding */
+    margin: 0; /* Reset margin */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+/*General section*/
+
+body {
+    font-family: 'Noto Sans Display', sans-serif;
+    color: #333; /* Dark text color for contrast */
+    padding: 0;
+    background-color: #fff;
+
+}
+
+/* Custom display class for flexbox layout */
+.custom-display {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes full height */
+
+}
+
+/* Header section*/
+
+
+
+
+/* Navigation section*/
+nav {
+    padding: 10px 0;
+    z-index: 1000; /* Ensures the navbar is above other content */
+    width: 100%; /* Full width for the navbar */
+}
+
+.nav-link.active {
+    font-weight: bold;
+    border-bottom: 2px solid #000; /* Underline the active link */
+    color: #000; /* Change color of active link */
+}
+nav a {
+    color: #fff;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+nav a:hover,
+.nav-link.active {
+    color: #f8f9fa;
+    text-decoration: auto; /* Underline on hover */
+}
+
+/*Main section*/
+
+/*Contact section*/
+.custom-contact {
+    background-color: #f8f9fa; /* Light background for the contact section */
+    padding: 10px 0;
+    border-radius: 5px; /* Rounded corners for the contact form */
+
+}
+
+/* Footer section*/
+
+footer {
+    background-color: #f8f9fa; /* Light background for the footer */
+    text-align: center; /* Center the footer text */
+}
+
+.custom-edit {
+    font-family: 'Noto Sans Display', sans-serif; /* Custom font for the footer */
+    color: #333; /* Dark text color for contrast */
+    margin-top: auto; /* Ensures footer stays at the bottom of the page */
+    padding: 20px; /* Adds padding for better spacing */
+    border-top: 1px solid #dee2e6; /* Adds a top border for separation */
+}
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) {
+    /* Add tablet-specific styles here */
+}
+
+/* Large devices (small laptops, 992px and up) */
+@media screen and (min-width: 992px) {
+    /* Add small laptop-specific styles here */
+}
+
+/* xl devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    /* Add large desktop-specific styles here */
+}
+
+/* xxl devices (larger desktops, 1400px and up) */
+@media screen and (min-width: 1400px) {
+    /* Add extra large desktop-specific styles here */
 }

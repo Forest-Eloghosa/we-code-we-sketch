@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We Code We Sketch</title>
+    <title> Contact | We Code We Sketch</title>
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -21,28 +21,27 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
-
 <!-- Classes on body set to work with mt-auto on footer to ensure it always stays at the bottom of the page -->
 <body class="d-flex flex-column min-vh-100 custom-display">
 
 <!--Navigation Section-->
 
-<nav class="navbar navbar-expand-sm bg-body-tertiary ms-auto z-index">
+<nav class="navbar navbar-expand-sm bg-body-tertiary z-index">
     <div class="container">
              <a class="navbar-brand" href="index.html">
                 <!-- Logo image -->
-<img src="assets/favicon/android-chrome-192x192.png" alt="logo" class="logo-image">
-<span class="logo-text text-center">We Code We Sketch</span>
+                <img src="assets/favicon/android-chrome-192x192.png" alt="logo" class="logo-image">
+                <span class="logo-text text-center">Contact</span>
              </a>
-           
+
  <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
     </button>
 
-     <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                <a class="nav-link" href="index.html">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="resume.html">Resume</a>
@@ -51,7 +50,7 @@
                 <a class="nav-link" href="#projects">Projects</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
+                <a class="nav-link active" href="contact.html">Contact</a>
             </li>
         </ul>
     </div>
@@ -59,12 +58,46 @@
   </nav>
 
 
-<!--Main Section-->
+<!--Main Section / Contact Form-->
+<section class="container mt-5">
+    <div class="custom-contact">
+  <h1 class="text-center mb-4">Contact Us</h1>
+  <p class="text-center">We'd love to hear from you! Please fill out the form below to get in touch.</p>
+</div>
+ 
+<form action="https://formsubmit.co/yourname@example.com" method="POST">
+  <div class="mb-3">
+    <label for="name" class="form-label">Name</label>
+    <input type="text" class="form-control" name="name" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="service" class="form-label">I’m contacting you about...</label>
+    <select class="form-select" name="service">
+      <option value="web">Website</option>
+      <option value="art">Sketch/Portrait</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">Message</label>
+    <textarea class="form-control" name="message" rows="4" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-dark">Submit</button>
+</form>
+</section>
 
 
 <!--Footer Section-->
 
-<footer id="download " class="custom-edit">
+<footer id="download" class="custom-edit">
     &copy; 2025 We Code We Sketch — Custom code and creative design.<br />
     Built with <strong>Bootstrap</strong> for flexibility, responsiveness, and ease of layout design.
   </footer>
