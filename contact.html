@@ -47,7 +47,7 @@
                 <a class="nav-link" href="resume.html">Resume</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="index.html#projects">Projects</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="contact.html">Contact</a>
@@ -55,17 +55,44 @@
         </ul>
     </div>
     </div>
+    <button id="theme-toggle" class="btn btn-sm" aria-label="Toggle light/dark mode">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
+</button>
   </nav>
 
 
 <!--Main Section / Contact Form-->
-<section class="container mt-5">
-    <div class="custom-contact">
-  <h1 class="text-center mb-4">Contact Us</h1>
-  <p class="text-center">We'd love to hear from you! Please fill out the form below to get in touch.</p>
-</div>
+<!-- Contact Page Hero -->
+<section class="text-center py-5">
+  <div class="container">
+    <h1 class="display-5 fw-bold">We Code. We Sketch. We Build.</h1>
+    <a href="#contact-form" class="btn btn-light mt-3">Hire Us</a>
+  </div>
+</section>
+
+<!-- Visual Philosophy -->
+<section class="d-flex justify-content-around text-center py-5 bg-light flex-wrap">
+  <div>
+    <i class="fas fa-code fa-2x mb-2"></i>
+    <p>Code</p>
+  </div>
+  <div>
+    <i class="fas fa-mobile-alt fa-2x mb-2"></i>
+    <p>Mobile</p>
+  </div>
+  <div>
+    <i class="fas fa-desktop fa-2x mb-2"></i>
+    <p>Desktop</p>
+  </div>
+  <div>
+    <i class="fas fa-pencil-alt fa-2x mb-2"></i>
+    <p>Sketch</p>
+  </div>
+</section>
+
  
-<form action="https://formsubmit.co/yourname@example.com" method="POST">
+<form id="contact-form" class="container my-5" action="https://formsubmit.co/YOUR_EMAIL" method="POST">
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input type="text" class="form-control" name="name" required>
@@ -94,6 +121,29 @@
 </form>
 </section>
 
+<!-- JavaScript for Theme Toggle -->
+<script>
+  const toggle = document.getElementById('theme-toggle');
+
+  const applyTheme = (mode) => {
+    document.body.classList.toggle('dark-mode', mode === 'dark');
+    document.querySelector('nav').classList.toggle('dark-mode', mode === 'dark');
+    document.querySelector('footer').classList.toggle('dark-mode', mode === 'dark');
+
+    document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode', mode === 'dark'));
+    document.querySelectorAll('section').forEach(section => section.classList.toggle('dark-mode', mode === 'dark'));
+  };
+
+  toggle.addEventListener('click', () => {
+    const isDark = document.body.classList.toggle('dark-mode');
+    const mode = isDark ? 'dark' : 'light';
+    applyTheme(mode);
+    localStorage.setItem('theme', mode);
+  });
+
+  const saved = localStorage.getItem('theme') || 'light';
+  applyTheme(saved);
+</script>
 
 <!--Footer Section-->
 
