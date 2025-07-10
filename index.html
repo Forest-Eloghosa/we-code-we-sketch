@@ -25,6 +25,7 @@
 <!-- Classes on body set to work with mt-auto on footer to ensure it always stays at the bottom of the page -->
 <body class="d-flex flex-column min-vh-100 custom-display">
 
+
 <!--Navigation Section-->
 
 <nav class="navbar navbar-expand-sm bg-body-tertiary ms-auto z-index">
@@ -48,7 +49,7 @@
                 <a class="nav-link" href="resume.html">Resume</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="index.html#projects">Projects</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -56,8 +57,153 @@
         </ul>
     </div>
     </div>
+    <button id="theme-toggle" class="btn btn-sm" aria-label="Toggle light/dark mode">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
+</button>
   </nav>
 
+<!-- Hero Section (Image + Text Overlay) -->
+<section class="hero-image-container position-relative text-center">
+  <img src="assets/images/We-Code-We-Sketch-hero.png" alt="Hero image" class="img-fluid w-100">
+  <div class="hero-text-overlay position-absolute top-50 start-50 translate-middle text-white">
+    <h1 class="display-4 fw-bold">We Code. We Sketch. We Build.</h1>
+    <p class="lead">Custom websites and heartfelt artwork — made with passion, precision, and personality.</p>
+    <a href="contact.html" class="btn btn-light mt-3">Let’s Work Together</a>
+  </div>
+</section>
+
+<!-- About Preview Section -->
+<section class="container text-center my-5">
+  <h2 class="mb-3">Hi, I'm Forest </h2>
+  <p class="lead">
+    I'm a freelance web developer and sketch artist based in Ireland.  
+    I build clean, custom websites and hand-drawn artwork — with care, creativity, and compassion.
+  </p>
+  <p>
+    Whether you're looking to launch your business online or surprise someone with a meaningful portrait,  
+    I'm here to bring your ideas to life.
+  </p>
+  <a href="resume.html" class="btn btn-outline-dark mt-3">View My Resume</a>
+</section>
+
+<!-- Services Snapshot Section -->
+<section class="bg-light py-5 text-center">
+  <div class="container">
+    <h2 class="mb-4">What I Can Do For You</h2>
+    <p class="mb-4">From modern websites to heartfelt artwork — I offer a range of creative services.</p>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <h3> Web Development</h3>
+        <p>Clean, responsive websites — built from scratch and tailored to your needs.</p>
+      </div>
+      <div class="col-md-6 mb-3">
+        <h3> Sketch Commissions</h3>
+        <p>Custom portraits, branding sketches, and special gift illustrations.</p>
+      </div>
+    </div>
+    <a href="resume.html#services" class="btn btn-dark mt-3">Explore All Services</a>
+  </div>
+</section>
+
+<!-- Portfolio Grid Section -->
+<section id="projects" class="py-5 bg-light">
+    <a class="projects" href="index.html#projects"></a>
+  <div class="container">
+    <h2 class="text-center mb-4">My Work</h2>
+    <p class="text-center mb-5">Here’s a glimpse into some of the websites and artwork I’ve created with love and intention.</p>
+
+    <div class="row g-4">
+      <!-- You Are Seen Project -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="assets/images/you-are-seen-preview.png" class="card-img-top" alt="You Are Seen project screenshot">
+          <div class="card-body">
+            <h5 class="card-title">You Are Seen</h5>
+            <p class="card-text">A wellness and reflection platform built with empathy. HTML, CSS, Bootstrap, and JavaScript.</p>
+            <a href="https://forest-eloghosa.github.io/you-are-seen/" class="btn btn-outline-dark btn-sm" target="_blank">View Live Site</a>
+            <a href="https://github.com/Forest-Eloghosa/you-are-seen" class="btn btn-outline-secondary btn-sm mt-2" target="_blank">View Code</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Project Example -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="assets/images/placeholder-dev.png" class="card-img-top" alt="Pet Groomer Website">
+          <div class="card-body">
+            <h5 class="card-title">Pet Groomer Site</h5>
+            <p class="card-text">A custom responsive site built with HTML, CSS & Bootstrap.</p>
+            <a href="#" class="btn btn-outline-dark btn-sm" target="_blank">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Art Project Example -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="assets/images/placeholder-art.png" class="card-img-top" alt="Mother’s Day Sketch">
+          <div class="card-body">
+            <h5 class="card-title">Mother’s Day Portrait</h5>
+            <p class="card-text">A hand-drawn A4 pencil portrait — gifted for a special occasion.</p>
+            <a href="#" class="btn btn-outline-dark btn-sm">View Artwork</a>
+          </div>
+        </div>
+      </div>
+           <!-- Logo Mascot Sketch -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="assets/images/art/logo-mascot.png" class="card-img-top" alt="Mascot logo sketch">
+          <div class="card-body">
+            <h5 class="card-title">Custom Logo Mascot</h5>
+            <p class="card-text">Character sketch for a small business brand — hand-drawn and vectorized.</p>
+            <a href="#" class="btn btn-outline-dark btn-sm">View Sketch</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Call-To-Action -->
+<section class="text-center my-5">
+  <div class="container">
+    <h2 class="mb-3">Let’s Build Something Together</h2>
+    <p class="lead">Have a project, gift idea, or sketch in mind?</p>
+    <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+  </div>
+</section>
+
+<!-- Scroll Animation (AOS) -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
+
+    const applyTheme = (mode) => {
+      document.body.classList.toggle('dark-mode', mode === 'dark');
+      document.querySelector('nav').classList.toggle('dark-mode', mode === 'dark');
+      document.querySelector('footer').classList.toggle('dark-mode', mode === 'dark');
+      document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode', mode === 'dark'));
+      document.querySelectorAll('section').forEach(section => section.classList.toggle('dark-mode', mode === 'dark'));
+    };
+
+    toggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-mode');
+      const mode = isDark ? 'dark' : 'light';
+      applyTheme(mode);
+      localStorage.setItem('theme', mode);
+    });
+
+    const saved = localStorage.getItem('theme') || 'light';
+    applyTheme(saved);
+  });
+</script>
 
 <!--Main Section-->
 
@@ -74,6 +220,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/af3ee3b7e1.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
 
