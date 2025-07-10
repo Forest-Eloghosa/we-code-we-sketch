@@ -47,7 +47,7 @@
                 <a class="nav-link active" href="resume.html">Resume</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#projects">Projects</a>
+                <a class="nav-link" href="index.html#projects">Projects</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -55,13 +55,76 @@
         </ul>
     </div>
     </div>
+    <button id="theme-toggle" class="btn btn-sm" aria-label="Toggle light/dark mode">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
+</button>
   </nav>
 
 
 <!--Main Section/Resume section-->
+<section class="py-5 bg-light text-center">
+  <div class="container">
+    <h2 class="display-4 mb-3">Forest Eloghosa</h2>
+    <p class="lead mb-4">Freelance Developer & Sketch Artist</p>
+    <p> Based in Ireland |  foresteloghosa@gmail.com</p>
+    <p> GitHub | LinkedIn | Instagram</p>
+
+    <hr class="my-4">
+
+    <h4 class="mb-3">Tech Skills</h4>
+    <ul class="list-unstyled">
+      <li>Web: HTML, CSS, JavaScript, Bootstrap, Python</li>
+      <li>Tools: Git, GitHub, Heroku, Figma, Tailwind</li>
+      <li>Art: Portrait sketching, branding concepts, hand-drawn mascots</li>
+    </ul>
+
+   <div class="container my-5">
+  <h4 class="mt-5 mb-3 text-center">Services Offered</h4>
+  <p class="fst-italic text-center">Custom websites and heartfelt artwork — made with passion, precision, and personality.</p>
+
+  <div class="row gy-4 mt-4 resume-card">
+    <!-- Web Dev Col -->
+    <div class="col-md-6">
+      <div class="p-4 border rounded h-100 bg-white shadow-sm">
+        <h5 class="mb-3">Web Development</h5>
+        <ul class="list-unstyled">
+          <li> Business websites, landing pages</li>
+          <li> Site maintenance, bug fixing</li>
+          <li> Optimization & accessibility support</li>
+          <li> Mobile-first & responsive design</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sketch Col -->
+    <div class="col-md-6">
+      <div class="p-4 border rounded h-100 bg-white shadow-sm">
+        <h5 class="mb-3">Sketch Commissions</h5>
+        <ul class="list-unstyled">
+          <li> Portrait sketching (all hand-drawn)</li>
+          <li> Event or memorial illustrations</li>
+          <li> Branding: mascots, logo sketches</li>
+          <li> Personalized art gifts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <h4 class="mt-5 mb-3"> Featured Project</h4>
+    <p><strong>You Are Seen</strong> Wellness and Reflection Platform</p>
+    <p>GitHub | Built with HTML, CSS, JS, Bootstrap</p>
+
+    <h4 class="mt-5 mb-3"> About Me</h4>
+    <p class="fst-italic">A creative mind with a problem-solving heart. I build websites that work and art that speaks — with reliability, compassion, and attention to detail.</p>
+  </div>
+</section>
+
 
 <section class="container my-5">
-  <h2 class="text-center">My Resume</h2>
+
   <p class="lead text-center">A mix of tech skills, artistic talent, and dedication to excellence.</p>
   <div class="text-center my-4">
     <a href="assets/files/Forest-CV.pdf" class="btn btn-primary" download>
@@ -69,6 +132,30 @@
     </a>
   </div>
 </section>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.getElementById('theme-toggle');
+
+    const applyTheme = (mode) => {
+      document.body.classList.toggle('dark-mode', mode === 'dark');
+      document.querySelector('nav').classList.toggle('dark-mode', mode === 'dark');
+      document.querySelector('footer').classList.toggle('dark-mode', mode === 'dark');
+      document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode', mode === 'dark'));
+      document.querySelectorAll('section').forEach(section => section.classList.toggle('dark-mode', mode === 'dark'));
+    };
+
+    toggle.addEventListener('click', () => {
+      const isDark = document.body.classList.toggle('dark-mode');
+      const mode = isDark ? 'dark' : 'light';
+      applyTheme(mode);
+      localStorage.setItem('theme', mode);
+    });
+
+    const saved = localStorage.getItem('theme') || 'light';
+    applyTheme(saved);
+  });
+</script>
 
 <!--Footer Section-->
 
@@ -84,5 +171,3 @@
     <script src="https://kit.fontawesome.com/af3ee3b7e1.js" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
