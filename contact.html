@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Contact | We Code We Sketch</title>
+    <meta name="description" content="We Code We Sketch — a creative portfolio by Forest Eloghosa. Freelance web development and sketch artistry, offering custom websites and hand-drawn portraits made with care, creativity, and purpose.">
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -11,9 +12,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
 <link rel="manifest" href="assets/favicon/site.webmanifest">
-
-
-
+ 
 <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 
@@ -24,15 +23,19 @@
 <!-- Classes on body set to work with mt-auto on footer to ensure it always stays at the bottom of the page -->
 <body class="d-flex flex-column min-vh-100 custom-display">
 
-<!--Navigation Section-->
-
-<nav class="navbar navbar-expand-sm bg-body-tertiary z-index">
+ <!--Navigation Section-->
+<nav class="navbar navbar-expand-sm custom-nav ms-auto z-index">
     <div class="container">
              <a class="navbar-brand" href="index.html">
                 <!-- Logo image -->
                 <img src="assets/favicon/android-chrome-192x192.png" alt="logo" class="logo-image">
                 <span class="logo-text text-center">Contact</span>
              </a>
+
+             <button id="theme-toggle" class="btn btn-sm" aria-label="Toggle light/dark mode">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
+</button>
 
  <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
@@ -54,16 +57,10 @@
             </li>
         </ul>
     </div>
-    </div>
-    <button id="theme-toggle" class="btn btn-sm" aria-label="Toggle light/dark mode">
-  <i class="fa-solid fa-moon"></i>
-  <i class="fa-solid fa-sun"></i>
-</button>
+  </div>
   </nav>
 
-
-<!--Main Section / Contact Form-->
-<!-- Contact Page Hero -->
+ <!--Main Section / Contact Form-->
 <section class="text-center py-5">
   <div class="container">
     <h1 class="display-5 fw-bold">We Code. We Sketch. We Build.</h1>
@@ -72,7 +69,7 @@
 </section>
 
 <!-- Visual Philosophy -->
-<section class="d-flex justify-content-around text-center py-5 bg-light flex-wrap">
+<section class="d-flex justify-content-around text-center py-5 flex-wrap">
   <div>
     <i class="fas fa-code fa-2x mb-2"></i>
     <p>Code</p>
@@ -90,9 +87,8 @@
     <p>Sketch</p>
   </div>
 </section>
-
  
-<form id="contact-form" class="container my-5" action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+<form id="contact-form" class="container my-5" action="https://formsubmit.co/wecodewesketch@gmail.com" method="POST">
   <div class="mb-3">
     <label for="name" class="form-label">Name</label>
     <input type="text" class="form-control" name="name" required>
@@ -128,9 +124,7 @@
   const applyTheme = (mode) => {
     document.body.classList.toggle('dark-mode', mode === 'dark');
     document.querySelector('nav').classList.toggle('dark-mode', mode === 'dark');
-    document.querySelector('footer').classList.toggle('dark-mode', mode === 'dark');
-
-    document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode', mode === 'dark'));
+     document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode', mode === 'dark'));
     document.querySelectorAll('section').forEach(section => section.classList.toggle('dark-mode', mode === 'dark'));
   };
 
@@ -146,17 +140,39 @@
 </script>
 
 <!--Footer Section-->
+<footer class="custom-edit mt-auto">
+  <div class="container text-center py-4">
+    <div class="mb-3">
+      <ul id="social-networks" class="d-flex justify-content-center list-unstyled gap-4 mb-3">
+        <li>
+          <a href="https://www.facebook.com/share/1XwQMPiY3W/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Visit our Facebook page">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/wecodewesketch?s=21" target="_blank" rel="noopener" aria-label="Visit our Twitter/X page">
+            <i class="fa-brands fa-x-twitter fa-lg"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/wecode_wesketch/?igsh=ZmN2cXBna3lia2Nm&utm_source=qr" target="_blank" rel="noopener" aria-label="Visit our Instagram page">
+            <i class="fa-brands fa-instagram fa-lg"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-<footer id="download" class="custom-edit">
-    &copy; 2025 We Code We Sketch — Custom code and creative design.<br />
-    Built with <strong>Bootstrap</strong> for flexibility, responsiveness, and ease of layout design.
-  </footer>
+    <p class="mb-1 fw-semibold">© 2025 <strong>We Code We Sketch</strong></p>
+    <p class="small text-muted mb-0">Custom code and creative design. Built with <strong>Bootstrap</strong>.</p>
+  </div>
+</footer>
 
-
-<!-- JavaScript Bootstrap-->
+ <!-- JavaScript Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
 <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/af3ee3b7e1.js" crossorigin="anonymous"></script>
+
 </body>
 </html>
 

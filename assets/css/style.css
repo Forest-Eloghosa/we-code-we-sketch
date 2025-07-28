@@ -1,29 +1,37 @@
-/*Google fonts*/
+/* Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /*Global Styles*/
 body {
     font-family: 'Noto Sans Display', sans-serif;
     color: #333;
-    background-color: #fff;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #fbfbf3;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for dark mode */
 }
 
 body.dark-mode {
     background-color: #121212;
-    color: #f5f5f5;
+    color: #fbfbf3;
 }
 
-/*Navbar Styles*/
+/* Navigation Section */
 nav {
     padding: 10px 0;
     z-index: 1000;
     width: 100%;
     transition: background-color 0.3s ease;
+    background-color: #fbfbf3;
+}
+
+nav.dark-mode .navbar-brand {
+    font-family: 'Noto Sans Display', sans-serif;
+    font-size: 1.2rem;
+    color: #fbfbf3;
 }
 
 nav.dark-mode {
     background-color: #1e1e1e;
+    text-decoration: rgba(0,0,0,1);
 }
 
 .nav-link.active {
@@ -33,8 +41,9 @@ nav.dark-mode {
 }
 
 .nav-link.active.dark-mode {
-    color: #f5f5f5;
-    border-bottom: 2px solid #f5f5f5;
+  color: #ffffff;
+  border-bottom: 2px solid #ffffff;
+  font-weight: 700;
 }
 
 nav a {
@@ -42,32 +51,128 @@ nav a {
     transition: all 0.3s ease;
 }
 
-nav.dark-mode a {
-    color: #ddd;
+.logo-text{
+  font-family: 'Noto Sans Display', sans-serif;
+    color: rgba(0,0,0,1);
+}
+/* Light mode navbar background */
+.custom-nav {
+  background-color: #fbfbf3 !important;
 }
 
-nav a:hover,
-.nav-link.active {
-    color: #f8f9fa;
-    text-decoration: none;
+/* Dark mode navbar background */
+body.dark-mode .custom-nav {
+  background-color: #1a1a1a !important;
+  color: #fbfbf3 !important;
 }
 
+body.dark-mode .logo-text,
+body.dark-mode .navbar a,
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link {
+  color: #fbfbf3 !important;
+}
 
-/*Resume Section Styles*/
+body.dark-mode nav,
+body.dark-mode .navbar,
+body.dark-mode .custom-nav {
+  background-color: #1e1e1e !important;
+}
+
+#theme-toggle i {
+  color: #000; /* default for light theme */
+  transition: color 0.3s ease;
+}
+
+body.dark-mode #theme-toggle i {
+  color: #fbfbf3; /* bright for dark background */
+}
+
+/* Main Section */
+/* Carousel inside card */
+.carousel .carousel-inner img {
+  object-fit: contain;
+  height: 250px;
+  background-color: #fbfbf3;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
+
+body.dark-mode .carousel .carousel-inner img {
+  background-color: #2a2a2a;
+}
+
+/* Lightbox Caption Styling */
+.lightbox .lb-data {
+  color: #333;
+  font-size: 14px;
+  padding-top: 10px;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode .lightbox .lb-data {
+  color: #fbfbf3;
+}
+
+/* Card animation (carousel + sketches) */
+.card {
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* Lightbox Caption Styling */
+.lightboxOverlay {
+  transition: background-color 0.3s ease;
+  background: rgba(0, 0, 0, 0.85);
+}
+
+.lb-caption {
+  color: #333;
+  font-family: 'Noto Sans Display', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  padding: 10px;
+}
+
+body.dark-mode .lb-caption {
+  color: #fbfbf3;
+}
+
+body.dark-mode .lightboxOverlay {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+/* AOS fade adjustment */
+[data-aos="fade-up"] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition-property: opacity, transform;
+}
+
+[data-aos="fade-up"].aos-animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+ 
+/*Resume Section*/
 body.dark-mode table {
-  background-color: #1e1e1e;
-  color: #f5f5f5;
-  border-color: #444;
+  background-color: #1e1e1e; /* Dark background for tables */
+  color: #fbfbf3; /* Light text color for better contrast */
+  border-color: #444; /* Darker border for tables */
 }
 
 body.dark-mode table th,
 body.dark-mode table td {
-  color: #f5f5f5;
-  border-color: #555;
+  color: #fbfbf3; /* Light text color for table headers and cells */
+  border-color: #555; /* Darker border for table headers and cells */
 }
 
 body.dark-mode .table-hover tbody tr:hover {
-  background-color: #2a2a2a;
+  background-color: #2a2a2a; /* Darker hover effect for table rows */
 }
 
 .resume-section .card,
@@ -76,20 +181,46 @@ body.dark-mode .table-hover tbody tr:hover {
   margin-bottom: 1rem;
 }
 
-/*Contact Form Styles*/
+/* Contact Form & dark mode styling Section */
 .contact-hero {
-  background: linear-gradient(to right, #f0f0f0, #e2e2e2);
+  background: linear-gradient(to right, #f0f0f0, #e2e2e2); /* Light gradient for contact section */
 }
 
 body.dark-mode .contact-hero {
-  background: linear-gradient(to right, #1f1f1f, #2a2a2a);
+  background: linear-gradient(to right, #1f1f1f, #2a2a2a); /* Dark gradient for contact section */
 }
 
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+}
 
-/*Hero Section Styles*/
+body.dark-mode .form-label {
+    color: #ccc;
+}
+
+ /* Hero Section */
+.hero-image-container,
 .hero-image-container img {
-    height: 100%;
-    object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.hero-image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.hero-image-container {
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  text-align: center;
 }
 
 .hero-text-overlay {
@@ -99,20 +230,30 @@ body.dark-mode .contact-hero {
 section {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-section.bg-light.dark-mode {
-    background-color: #2a2a2a !important;
-    color: #eaeaea;
+/* About Preview Section */
+.btn.btn-outline.dark-mode {
+    border-color: black;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.bg-light.dark-mode i {
-    color: #f5f5f5;
+.btn.btn-outline.dark-mode:hover{
+     background-color: grey;
+     color: #fbfbf3; 
+}
+/*Services Snapshot Section*/
+section.dark-mode {
+    background-color: #2a2a2a; 
+    color: #fbfbf3;
+}
+
+section.text-center {
+    padding: 2rem 0;
 }
 
 section.text-center.dark-mode,
 section.py-5.dark-mode {
     background-color: #1e1e1e;
-    color: #f5f5f5;
+    color: #fbfbf3;
 }
 
 .card {
@@ -121,23 +262,38 @@ section.py-5.dark-mode {
 
 .card.dark-mode {
   background-color: #1e1e1e;
-  color: #f5f5f5;
+  color: #fbfbf3;
   border: 1px solid #444;
 }
 
+.btn-outline-light {
+  color: #fbfbf3;
+  border-color: #fbfbf3;
+}
 
-/* Footer Styles */
-footer {
-    background-color: #f8f9fa;
-    text-align: center;
+.btn-outline-light:hover {
+  background-color: #fbfbf3;
+  color: #121212;
+}
+
+/*CTA Button Styles*/
+.btn-outline-dark.dark-mode {
+    border-color: black;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-footer.dark-mode {
-    background-color: #1e1e1e;
-    color: #ccc;
+.btn-outline-dark.dark-mode:hover{
+     background-color: grey;
+     color: white;
 }
 
+/* Footer Section */
+footer {
+    background-color:#fbfbf3;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+ 
 .custom-edit {
     font-family: 'Noto Sans Display', sans-serif;
     color: #333;
@@ -147,13 +303,35 @@ footer.dark-mode {
 }
 
 .custom-edit.dark-mode {
-    color: #ccc;
-    border-top: 1px solid #444;
+  border-top: 1px solid #444;
 }
 
 .btn-light.dark-mode {
     background-color: #333;
     color: #fff;
+}
+
+body.dark-mode .social-icons a {
+  color: #fbfbf3;
+}
+
+/* Social Media Styling*/
+#social-networks i {
+  color: black;
+  transition: color 0.3s ease;
+}
+
+#social-networks a:hover i {
+  color: gray; 
+}
+
+footer p,
+footer .small {
+  margin-bottom: 0.2rem;
+}
+
+footer .fa-lg {
+  font-size: 1.25rem;
 }
 
 /* Toggle Icon Swap */
@@ -166,73 +344,341 @@ body.dark-mode #theme-toggle i.fa-moon {
 body.dark-mode #theme-toggle i.fa-sun {
     display: inline;
 }
+ 
+/* Media Queries for Responsive Design */
+/* Ultra Small Devices (up to 320px) */
+@media screen and (max-width: 320px) {
+  .logo-text {
+    font-size: 0.9rem;
+    max-width: 65vw;
+  }
 
-/* Form dark mode styling */
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-    background-color: #333;
-    color: #fff;
-    border-color: #555;
+  .navbar-nav {
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  .navbar-brand img {
+    max-width: 32px;
+    height: auto;
+    margin-bottom: 4px;
+  }
+
+  .hero-text-overlay {
+    padding: 1rem;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .hero-text-overlay h1 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+
+  .hero-text-overlay p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .btn,
+  .btn-sm {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.6rem;
+  }
+
+  #social-networks {
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  #social-networks i {
+    font-size: 120%;
+    padding: 0.4rem;
+  }
+
+  footer p,
+  footer .small {
+    font-size: 0.8rem;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .container,
+  section,
+  .hero-image-container img {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .card-body {
+    padding: 0.75rem;
+  }
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-img-top {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 0.5rem;
+  }
 }
 
-body.dark-mode .form-label {
-    color: #ccc;
+/*  Medium Mobile Devices (up to 375px) */
+@media screen and (max-width: 375px) {
+  .logo-text {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70vw;
+  }
+
+  .logo-image {
+    max-width: 36px;
+    height: auto;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+  }
+
+  .navbar-nav {
+    text-align: left;
+    padding-left: 1rem;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .navbar-brand img {
+    max-width: 32px;
+    height: auto;
+    margin-bottom: 4px;
+  }
+
+  .hero-text-overlay {
+    padding: 1rem;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .hero-text-overlay h1 {
+    font-size: 1.3rem;
+    line-height: 1.3;
+  }
+
+  .hero-text-overlay p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .container,
+  section,
+  .hero-image-container img {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-img-top {
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    object-fit: cover;
+  }
 }
-/*Media Queries for Responsive Design*/
+
+/*  Large Mobile Devices (up to 425px) */
+@media screen and (max-width: 425px) {
+  .logo-text {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70vw;
+  }
+
+  .logo-image {
+    max-width: 36px;
+    height: auto;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+  }
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .navbar-toggler {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .hero-text-overlay h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero-text-overlay p {
+    font-size: 1rem;
+  }
+
+  .card-img-top {
+    height: 200px;
+  }
+
+  .btn,
+  .btn-sm,
+  .btn-light,
+  .btn-dark {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  #social-networks {
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+  }
+
+  #social-networks i {
+    font-size: 130%;
+    padding: 0.5rem;
+  }
+
+  .lb-caption {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+
+/*  Small Devices (up to 575.98px) */
 @media (max-width: 575.98px) {
-    .navbar-collapse {
-        background-color: #ffffff;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
+  .navbar-collapse {
+    background-color: #fbfbf3;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 1rem;
+  }
+
+  .lb-caption {
+    line-height: 1.6;
+  }
 }
 
-@media screen and (min-width: 768px) {
-    .hero-image {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-    }
-    .hero-text {
-        padding: 0 2rem;
-    }
+/*  Medium Devices and Up */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+  body {
+    overflow-x: hidden; /* Prevent sideways scrolling */
+  }
+
+  .container,
+  .hero-image-container,
+  .hero-image-container img,
+  section {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    position: relative;
+    background-color: var(--bs-white); 
+    z-index: 10;
+  }
+
+  .navbar-collapse {
+    position: relative;
+    z-index: 9;
+    background-color: transparent;
+  }
+
+  #theme-toggle {
+    position: static;
+    margin-left: auto;
+    z-index: 1;
+  }
+
+  .logo-text {
+    font-size: small;
+    max-width: 40vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .navbar-brand {
+    flex-wrap: nowrap;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: end;
+    gap: .12rem;
+    padding-left: 0;
+  }
 }
 
 @media screen and (min-width: 992px) {
-    .hero-image {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
-    .hero-text {
-        padding: 0 3rem;
-    }
+  .hero-image {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .hero-text {
+    padding: 0 3rem;
+  }
 }
 
 @media screen and (min-width: 1200px) {
-    .hero-image {
-        padding-top: 7rem;
-        padding-bottom: 7rem;
-        background-size: cover;
-        background-position: center center;
-        height: 100%;
-    }
-    .hero-text {
-        padding: 0 4rem;
-    }
+  .hero-image {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+  }
+  .hero-text {
+    padding: 0 4rem;
+  }
 }
 
 @media screen and (min-width: 1400px) {
-    .hero-image {
-        padding-top: 8rem;
-        padding-bottom: 8rem;
-        background-size: cover;
-        background-position: center center;
-        height: 100%;
-    }
-    .hero-text {
-        padding: 0 5rem;
-    }
+  .hero-image {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+  }
+  .hero-text {
+    padding: 0 5rem;
+  }
 }

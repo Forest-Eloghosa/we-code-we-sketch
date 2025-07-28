@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We Code We Sketch</title>
+    <meta name="description" content="We Code We Sketch — a creative portfolio by Forest Eloghosa. Freelance web development and sketch artistry, offering custom websites and hand-drawn portraits made with care, creativity, and purpose.">
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
@@ -11,11 +12,12 @@
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
 <link rel="manifest" href="assets/favicon/site.webmanifest">
-
-
-
-<!-- Bootstrap CSS -->
+ 
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+   <!-- Lightbox CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
 
     <!--Custom CSS-->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -26,17 +28,21 @@
 <body class="d-flex flex-column min-vh-100 custom-display">
 
 
-<!--Navigation Section-->
-
-<nav class="navbar navbar-expand-sm bg-body-tertiary ms-auto z-index">
+ <!--Navigation Section-->
+<nav class="navbar navbar-expand-sm custom-nav ms-auto z-index">
     <div class="container">
              <a class="navbar-brand" href="index.html">
                 <!-- Logo image -->
 <img src="assets/favicon/android-chrome-192x192.png" alt="logo" class="logo-image">
-<span class="logo-text text-center">We Code We Sketch</span>
+<span class="logo-text">We Code We Sketch</span>
              </a>
-           
- <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  
+  <button id="theme-toggle" class="btn btn-sm ms-auto" aria-label="Toggle light/dark mode">
+  <i class="fa-solid fa-moon"></i>
+  <i class="fa-solid fa-sun"></i>
+</button>
+             
+ <button class="navbar-toggler border-0 ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <i class="fa-solid fa-bars"></i>
     </button>
 
@@ -56,11 +62,7 @@
             </li>
         </ul>
     </div>
-    </div>
-    <button id="theme-toggle" class="btn btn-sm" aria-label="Toggle light/dark mode">
-  <i class="fa-solid fa-moon"></i>
-  <i class="fa-solid fa-sun"></i>
-</button>
+  </div>
   </nav>
 
 <!-- Hero Section (Image + Text Overlay) -->
@@ -73,22 +75,23 @@
   </div>
 </section>
 
+<!--Main Section-->
 <!-- About Preview Section -->
 <section class="container text-center my-5">
   <h2 class="mb-3">Hi, I'm Forest </h2>
   <p class="lead">
     I'm a freelance web developer and sketch artist based in Ireland.  
-    I build clean, custom websites and hand-drawn artwork — with care, creativity, and compassion.
+    I build clean, custom websites and hand-drawn artwork with care, creativity, and compassion.
   </p>
   <p>
-    Whether you're looking to launch your business online or surprise someone with a meaningful portrait,  
+    Whether you're looking to launch your business online or surprise someone with a meaningful Art gift,  
     I'm here to bring your ideas to life.
   </p>
-  <a href="resume.html" class="btn btn-outline-dark mt-3">View My Resume</a>
+  <a href="resume.html" class="btn btn-outline mt-3">View My Resume</a>
 </section>
 
 <!-- Services Snapshot Section -->
-<section class="bg-light py-5 text-center">
+<section class="py-5 text-center dark-mode">
   <div class="container">
     <h2 class="mb-4">What I Can Do For You</h2>
     <p class="mb-4">From modern websites to heartfelt artwork — I offer a range of creative services.</p>
@@ -99,65 +102,101 @@
       </div>
       <div class="col-md-6 mb-3">
         <h3> Sketch Commissions</h3>
-        <p>Custom portraits, branding sketches, and special gift illustrations.</p>
+        <p>Custom portraits, branding sketches, and special Art gifts.</p>
       </div>
     </div>
     <a href="resume.html#services" class="btn btn-dark mt-3">Explore All Services</a>
   </div>
 </section>
 
-<!-- Portfolio Grid Section -->
-<section id="projects" class="py-5 bg-light">
-    <a class="projects" href="index.html#projects"></a>
+<section id="projects" class="py-5">
   <div class="container">
     <h2 class="text-center mb-4">My Work</h2>
     <p class="text-center mb-5">Here’s a glimpse into some of the websites and artwork I’ve created with love and intention.</p>
+    </div>
+</section>
 
-    <div class="row g-4">
-      <!-- You Are Seen Project -->
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+<!-- Project Carousel Section-->
+<div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+  <div class="card h-100 shadow-sm border-0">
+    <div id="multiPageCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/images/you-are-seen-homepage-preview.png" class="d-block w-100" alt="Website Homepage Preview">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/images/mobile-preview-on-multiple-sites.png" class="d-block w-100" alt="Mobile preview on Multiple sites">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#multiPageCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#multiPageCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Responsive Website Project</h5>
+      <p class="card-text">Multi-page layout with homepage and responsive mobile preview — created with HTML, CSS & Bootstrap.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Sketch Lightbox Section -->
+<section id="art-healing" class="py-5 text-center">
+  <div class="container">
+    <h3 class="text-center">Art & Healing</h3>
+    <p class="text-center fst-italic">Each sketch in this section is a quiet conversation with my past — a way to honour what shaped me and express what words couldn’t.</p>
+
+    <div class="row g-4 mt-4">
+      <!-- Emotional Sketch  -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card h-100 shadow-sm border-0">
-          <img src="assets/images/you-are-seen-preview.png" class="card-img-top" alt="You Are Seen project screenshot">
+          <a href="assets/images/sketch_of_a_sadboy_and_an_abusive_man.jpg" data-lightbox="art-healing" data-title="A sketch drawn using a reference photo that helped express a childhood feeling I couldn’t put into words. Credit to the original image — this piece is a reflection, not a claim.">
+            <img src="assets/images/sketch_of_a_sadboy_and_an_abusive_man.jpg" class="card-img-top" alt="Sketch of a sad boy hiding from an abusive man">
+          </a>
           <div class="card-body">
-            <h5 class="card-title">You Are Seen</h5>
-            <p class="card-text">A wellness and reflection platform built with empathy. HTML, CSS, Bootstrap, and JavaScript.</p>
-            <a href="https://forest-eloghosa.github.io/you-are-seen/" class="btn btn-outline-dark btn-sm" target="_blank">View Live Site</a>
-            <a href="https://github.com/Forest-Eloghosa/you-are-seen" class="btn btn-outline-secondary btn-sm mt-2" target="_blank">View Code</a>
+            <p class="card-text fst-italic">A raw sketch drawn using a reference photo that helped express a childhood feeling I couldn’t put into words. Credit to the original image — this piece is a reflection, not a claim.</p>
           </div>
         </div>
       </div>
 
-      <!-- Web Project Example -->
+      <!-- First Portrait Attempt -->
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
         <div class="card h-100 shadow-sm border-0">
-          <img src="assets/images/placeholder-dev.png" class="card-img-top" alt="Pet Groomer Website">
+          <a href="assets/images/sketch_of_a_younglady.jpg" data-lightbox="art-healing" data-title="My first attempt at portrait drawing — imperfect but heartfelt.">
+            <img src="assets/images/sketch_of_a_younglady.jpg" class="card-img-top" alt="Portrait sketch of a young lady">
+          </a>
           <div class="card-body">
-            <h5 class="card-title">Pet Groomer Site</h5>
-            <p class="card-text">A custom responsive site built with HTML, CSS & Bootstrap.</p>
-            <a href="#" class="btn btn-outline-dark btn-sm" target="_blank">View Project</a>
+            <p class="card-text">My first attempt at portrait drawing — imperfect but heartfelt.</p>
           </div>
         </div>
       </div>
 
-      <!-- Art Project Example -->
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+      <!-- Refined Sketch -->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
         <div class="card h-100 shadow-sm border-0">
-          <img src="assets/images/placeholder-art.png" class="card-img-top" alt="Mother’s Day Sketch">
+          <a href="assets/images/sketch_of_a_man_wearing_glasses.jpg" data-lightbox="art-healing" data-title="Character sketch after layout decisions and refinement.">
+            <img src="assets/images/sketch_of_a_man_wearing_glasses.jpg" class="card-img-top" alt="Sketch of a man wearing glasses">
+          </a>
           <div class="card-body">
-            <h5 class="card-title">Mother’s Day Portrait</h5>
-            <p class="card-text">A hand-drawn A4 pencil portrait — gifted for a special occasion.</p>
-            <a href="#" class="btn btn-outline-dark btn-sm">View Artwork</a>
+            <p class="card-text">Character sketch after layout decisions and refinement.</p>
+            <p>Credit to the original image</p>
           </div>
         </div>
       </div>
-           <!-- Logo Mascot Sketch -->
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+
+      <!-- Expression & Gesture Sketch-->
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
         <div class="card h-100 shadow-sm border-0">
-          <img src="assets/images/art/logo-mascot.png" class="card-img-top" alt="Mascot logo sketch">
+          <a href="assets/images/sketch_of_a_boy.jpg" data-lightbox="art-healing" data-title="A character sketch focusing on facial expression and gesture.">
+            <img src="assets/images/sketch_of_a_boy.jpg" class="card-img-top" alt="Sketch of a cartoon-style boy">
+          </a>
           <div class="card-body">
-            <h5 class="card-title">Custom Logo Mascot</h5>
-            <p class="card-text">Character sketch for a small business brand — hand-drawn and vectorized.</p>
-            <a href="#" class="btn btn-outline-dark btn-sm">View Sketch</a>
+            <p class="card-text">A character sketch focusing on facial expression and gesture.</p>
+            <p>Credit to the original image</p>
           </div>
         </div>
       </div>
@@ -188,8 +227,7 @@
     const applyTheme = (mode) => {
       document.body.classList.toggle('dark-mode', mode === 'dark');
       document.querySelector('nav').classList.toggle('dark-mode', mode === 'dark');
-      document.querySelector('footer').classList.toggle('dark-mode', mode === 'dark');
-      document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode', mode === 'dark'));
+       document.querySelectorAll('.card').forEach(card => card.classList.toggle('dark-mode', mode === 'dark'));
       document.querySelectorAll('section').forEach(section => section.classList.toggle('dark-mode', mode === 'dark'));
     };
 
@@ -204,22 +242,43 @@
     applyTheme(saved);
   });
 </script>
-
-<!--Main Section-->
-
-
+ 
 <!--Footer Section-->
+<footer class="custom-edit mt-auto">
+  <div class="container text-center py-4">
+    <div class="mb-3">
+      <ul id="social-networks" class="d-flex justify-content-center list-unstyled gap-4 mb-3">
+        <li>
+          <a href="https://www.facebook.com/share/1XwQMPiY3W/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Visit our Facebook page">
+            <i class="fa-brands fa-facebook fa-lg"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/wecodewesketch?s=21" target="_blank" rel="noopener" aria-label="Visit our Twitter/X page">
+            <i class="fa-brands fa-x-twitter fa-lg"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/wecode_wesketch/?igsh=ZmN2cXBna3lia2Nm&utm_source=qr" target="_blank" rel="noopener" aria-label="Visit our Instagram page">
+            <i class="fa-brands fa-instagram fa-lg"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
 
-<footer id="download " class="custom-edit">
-    &copy; 2025 We Code We Sketch — Custom code and creative design.<br />
-    Built with <strong>Bootstrap</strong> for flexibility, responsiveness, and ease of layout design.
-  </footer>
+    <p class="mb-1 fw-semibold">© 2025 <strong>We Code We Sketch</strong></p>
+    <p class="small text-muted mb-0">Custom code and creative design. Built with <strong>Bootstrap</strong>.</p>
+  </div>
+</footer>
 
-
-<!-- JavaScript Bootstrap-->
+ <!-- JavaScript Bootstrap-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+
 <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/af3ee3b7e1.js" crossorigin="anonymous"></script>
+
+<!-- JavaScript for Lightbox --> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
 </body>
 </html>
