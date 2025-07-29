@@ -63,13 +63,14 @@
  <!--Main Section / Contact Form-->
 <section class="text-center py-5">
   <div class="container">
-    <h1 class="display-5 fw-bold">We Code. We Sketch. We Build.</h1>
+    <h2 class="w-100 mb-4">Your Ideas. Our Craft.</h2>
     <a href="#contact-form" class="btn btn-light mt-3">Hire Us</a>
   </div>
 </section>
 
 <!-- Visual Philosophy -->
 <section class="d-flex justify-content-around text-center py-5 flex-wrap">
+  <h2 class="w-100 mb-4">How Can We Help?</h2>
   <div>
     <i class="fas fa-code fa-2x mb-2"></i>
     <p>Code</p>
@@ -87,21 +88,23 @@
     <p>Sketch</p>
   </div>
 </section>
- 
+<div class="container text-center py-3">
+  <h5 class="w-100 mb-4">Need a Website or a Sketch? Let’s Talk</h5>
+</div>
 <form id="contact-form" class="container my-5" action="https://formsubmit.co/wecodewesketch@gmail.com" method="POST">
-  <div class="mb-3">
+  <div class="">
     <label for="name" class="form-label">Name</label>
-    <input type="text" class="form-control" name="name" required>
+    <input type="text" class="form-control" id="name" name="name" required>
   </div>
 
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" name="email" required>
+    <input type="email" class="form-control" id="email" name="email" required>
   </div>
 
   <div class="mb-3">
     <label for="service" class="form-label">I’m contacting you about...</label>
-    <select class="form-select" name="service">
+    <select class="form-select" id="service" name="service">
       <option value="web">Website</option>
       <option value="art">Sketch/Portrait</option>
       <option value="other">Other</option>
@@ -110,12 +113,10 @@
 
   <div class="mb-3">
     <label for="message" class="form-label">Message</label>
-    <textarea class="form-control" name="message" rows="4" required></textarea>
+    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
   </div>
-
-  <button type="submit" class="btn btn-dark">Submit</button>
-</form>
-</section>
+   <button type="submit" class="btn btn-dark">Submit</button>
+ </form>
 
 <!-- JavaScript for Theme Toggle -->
 <script>
