@@ -1,0 +1,563 @@
+/* =========================================
+   1. RESET / BASE STYLES
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8fb;
+    color: #222;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    padding-left: 1.2rem;
+}
+
+/* =========================================
+   2. REUSABLE VARIABLES / THEME
+========================================= */
+:root {
+    --bg-main: #f8f8fb;
+    --bg-soft: #f5eef2;
+    --bg-header: #f7eef2;
+    --bg-header-light: #fcfafb;
+    --accent: #8b2e56;
+    --accent-dark: #6f2345;
+    --accent-soft: #f1dbe5;
+    --accent-soft-border: #e8cad6;
+    --text-main: #222;
+    --text-muted: #555;
+    --white: #ffffff;
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.07);
+    --shadow-card: 0 14px 35px rgba(0, 0, 0, 0.08);
+    --shadow-badge: 0 6px 15px rgba(0, 0, 0, 0.04);
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 18px;
+}
+
+/* =========================================
+   3. LAYOUT CONTAINERS
+========================================= */
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.section {
+    padding: 4.5rem 0;
+}
+
+.section-alt {
+    background-color: var(--bg-soft);
+}
+
+/* =========================================
+   4. ACCESSIBILITY
+========================================= */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+}
+
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    background: var(--white);
+    color: #000;
+    padding: 0.75rem 1rem;
+    z-index: 1000;
+    border: 2px solid var(--accent);
+}
+
+/* =========================================
+   5. HEADER / NAVIGATION
+========================================= */
+.site-header {
+    background: linear-gradient(135deg, var(--bg-header), var(--bg-header-light));
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 0;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #333;
+    font-weight: 600;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--accent);
+}
+
+/* =========================================
+   6. HERO SECTION
+========================================= */
+.hero {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 3rem 0 1rem;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: rgba(241, 219, 229, 0.7);
+    filter: blur(30px);
+    border-radius: 50%;
+    top: 10%;
+    right: 8%;
+    z-index: 0;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 2.7rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero-description {
+    max-width: 650px;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+/* =========================================
+   7. HERO LABELS / BADGES
+========================================= */
+.tagline,
+.section-label {
+    display: inline-block;
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.mini-label {
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.trust-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.trust-badges span {
+    background-color: var(--white);
+    color: var(--accent);
+    border: 1px solid var(--accent-soft-border);
+    padding: 0.55rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-badge);
+}
+
+/* =========================================
+   8. HERO BUTTONS
+========================================= */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: var(--accent-dark);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: var(--accent);
+    color: var(--white);
+}
+
+/* =========================================
+   9. HERO VISUAL CARDS
+========================================= */
+.hero-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+}
+
+.hero-card {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    height: 100%;
+}
+
+.hero-card h2 {
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.hero-card p {
+    margin-bottom: 0.8rem;
+}
+
+.hero-card ul {
+    margin-bottom: 0;
+}
+
+.hero-card-main {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+.hero-card-small {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+}
+
+.top-card {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.bottom-card {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* =========================================
+   10. SECTION HEADINGS
+========================================= */
+.section-heading {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.section-heading h2 {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--accent);
+}
+
+/* =========================================
+   11. GRID LAYOUTS
+========================================= */
+.card-grid,
+.pricing-grid,
+.feature-grid,
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+/* =========================================
+   12. SHARED CARDS / BOXES
+========================================= */
+.card,
+.price-card,
+.feature-box,
+.testimonial-card,
+.notice-box,
+.contact-info-box,
+.contact-form {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.card h3,
+.price-card h3,
+.feature-box h3,
+.contact-info-box h3 {
+    margin-bottom: 0.8rem;
+    color: var(--accent);
+}
+
+.card p,
+.price-card p,
+.feature-box p {
+    margin-bottom: 1rem;
+}
+
+.notice-box {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.contact-info-box p {
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   13. PRICING SECTION
+========================================= */
+.price {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.featured-card {
+    border: 2px solid var(--accent);
+    transform: translateY(-4px);
+}
+
+/* =========================================
+   14. TESTIMONIALS
+========================================= */
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.testimonial-name {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+/* =========================================
+   15. FORMS
+========================================= */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.85rem;
+    border: 1px solid #d7c3cb;
+    border-radius: var(--radius-sm);
+    font: inherit;
+    background-color: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: 2px solid var(--accent);
+    border-color: var(--accent);
+}
+
+.form-note {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* =========================================
+   16. FOOTER
+========================================= */
+.site-footer {
+    background-color: var(--accent);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+/* =========================================
+   17. TABLET RESPONSIVE
+========================================= */
+@media (max-width: 992px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-visual {
+        grid-template-columns: 1fr 1fr;
+        min-height: auto;
+    }
+
+    .hero-card-main,
+    .hero-card-small,
+    .top-card,
+    .bottom-card {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .card-grid,
+    .pricing-grid,
+    .feature-grid,
+    .testimonial-grid,
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   18. MOBILE RESPONSIVE
+========================================= */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--white);
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-soft);
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hero {
+        padding-top: 2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.9rem;
+    }
+
+    .hero-visual {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        display: grid;
+        gap: 1rem;
+    }
+
+    .hero-card-main,
+    .hero-card-small,
+    .top-card,
+    .bottom-card {
+        position: static;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .card-grid,
+    .pricing-grid,
+    .feature-grid,
+    .testimonial-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+}
