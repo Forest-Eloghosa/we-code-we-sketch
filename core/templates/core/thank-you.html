@@ -1,21 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thank You | We Code We Sketch</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 </head>
 <body>
     <main class="section">
         <div class="container">
-            <div class="contact-info-box" style="max-width: 700px; margin: 3rem auto; text-align: center;">
+            <div class="contact-form" style="max-width: 700px; margin: 4rem auto; text-align: center;">
                 <p class="section-label">Request Sent</p>
-                <h1 style="margin-bottom: 1rem; color: #8a2146;">Thank you for reaching out</h1>
+                <h1 style="margin-bottom: 1rem; color: #8b2e56;">Thank you for reaching out</h1>
                 <p style="margin-bottom: 1.5rem;">
-                    Your request has been submitted successfully. I will review your message and get back to you as soon as possible.
+                    Your request has been submitted successfully. I will get back to you as soon as possible.
                 </p>
-                <a href="index.html" class="btn btn-primary">Return to Home</a>
+                <a href="{% url 'home' %}" class="btn btn-primary">Return Home</a>
             </div>
         </div>
     </main>
