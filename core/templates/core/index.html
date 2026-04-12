@@ -181,12 +181,12 @@
                     {% csrf_token %}
 
                     {% if form.errors %}
-                        <div class="form-errors" role="alert">
-                            <p>Please correct the errors below.</p>
-                        </div>
+                    <div class="form-errors" role="alert" tabindex="-1" id="form-error-summary">
+                        <p>Please correct the highlighted fields below.</p>
+                    </div>
                     {% endif %}
 
-                    <div class="form-group">
+                    <div class="form-group{% if form.full_name.errors %} has-error{% endif %}">
                         <label for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
                         {{ form.full_name }}
                         {% if form.full_name.errors %}
@@ -194,7 +194,7 @@
                         {% endif %}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group{% if form.email.errors %} has-error{% endif %}">
                         <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
                         {{ form.email }}
                         {% if form.email.errors %}
@@ -202,7 +202,7 @@
                         {% endif %}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group{% if form.phone.errors %} has-error{% endif %}">
                         <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
                         {{ form.phone }}
                         {% if form.phone.errors %}
@@ -210,7 +210,7 @@
                         {% endif %}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group{% if form.service.errors %} has-error{% endif %}">
                         <label for="{{ form.service.id_for_label }}">{{ form.service.label }}</label>
                         {{ form.service }}
                         {% if form.service.errors %}
@@ -218,7 +218,7 @@
                         {% endif %}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group{% if form.package.errors %} has-error{% endif %}">
                         <label for="{{ form.package.id_for_label }}">{{ form.package.label }}</label>
                         {{ form.package }}
                         {% if form.package.errors %}
@@ -226,7 +226,7 @@
                         {% endif %}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group{% if form.deadline.errors %} has-error{% endif %}">
                         <label for="{{ form.deadline.id_for_label }}">{{ form.deadline.label }}</label>
                         {{ form.deadline }}
                         {% if form.deadline.errors %}
@@ -234,7 +234,7 @@
                         {% endif %}
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group{% if form.message.errors %} has-error{% endif %}">
                         <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
                         {{ form.message }}
                         {% if form.message.errors %}

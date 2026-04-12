@@ -114,6 +114,28 @@
     <script src="{% static 'core/js/script.js' %}"></script>
     <script src="https://kit.fontawesome.com/af3ee3b7e1.js" crossorigin="anonymous"></script>
     {% block extra_scripts %}{% endblock %}
-    
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const firstErrorField = document.querySelector(
+        ".has-error input, .has-error select, .has-error textarea"
+    );
+
+    const errorSummary = document.getElementById("form-error-summary");
+
+    if (firstErrorField) {
+        firstErrorField.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        firstErrorField.focus();
+    } else if (errorSummary) {
+        errorSummary.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        errorSummary.focus();
+    }
+});
+</script>  
 </body>
 </html>
