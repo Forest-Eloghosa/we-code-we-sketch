@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class ClientRequest(models.Model):
     SERVICE_CHOICES = [
@@ -9,6 +8,14 @@ class ClientRequest(models.Model):
         ("admission-payment", "Admission Payment Assistance"),
         ("cv-review", "CV Review"),
         ("portfolio-website", "Portfolio Website"),
+    ]
+
+    PACKAGE_CHOICES = [
+        ("express-assistance", "Express Assistance"),
+        ("basic-application-support", "Basic Application Support"),
+        ("standard-application-package", "Standard Application Package"),
+        ("priority-application-package", "Priority Application Package"),
+        ("general-digital-assistance", "General Digital Assistance"),
     ]
 
     STATUS_CHOICES = [
@@ -21,6 +28,7 @@ class ClientRequest(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=20, blank=True)
     service = models.CharField(max_length=50, choices=SERVICE_CHOICES)
+    package = models.CharField(max_length=50, choices=PACKAGE_CHOICES, blank=True)
     deadline = models.CharField(max_length=100, blank=True)
     message = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="new")

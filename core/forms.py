@@ -5,7 +5,7 @@ from .models import ClientRequest
 class ClientRequestForm(forms.ModelForm):
     class Meta:
         model = ClientRequest
-        fields = ["full_name", "email", "phone", "service", "deadline", "message"]
+        fields = ["full_name", "email", "phone", "service", "package", "deadline", "message"]
         widgets = {
             "full_name": forms.TextInput(attrs={
                 "class": "form-input",
@@ -20,6 +20,9 @@ class ClientRequestForm(forms.ModelForm):
                 "placeholder": "Your WhatsApp number"
             }),
             "service": forms.Select(attrs={
+                "class": "form-input"
+            }),
+            "package": forms.Select(attrs={
                 "class": "form-input"
             }),
             "deadline": forms.TextInput(attrs={
@@ -37,6 +40,7 @@ class ClientRequestForm(forms.ModelForm):
             "email": "Email Address",
             "phone": "WhatsApp Number",
             "service": "Service Needed",
+            "package": "Selected Package",
             "deadline": "Deadline (if any)",
             "message": "How can I help?",
         }
