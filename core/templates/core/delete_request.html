@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+
+{% block title %}Delete Request | We Code We Sketch{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container" style="max-width: 700px;">
+        <div class="contact-form" style="text-align: center;">
+            <p class="section-label">Delete Request</p>
+            <h1 style="margin-bottom: 1rem;">Are you sure?</h1>
+            <p style="margin-bottom: 1.5rem;">
+                You are about to delete the request from <strong>{{ client_request.full_name }}</strong>.
+                This action cannot be undone.
+            </p>
+
+            <form method="POST" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Yes, Delete</button>
+                <a href="{% url 'request_detail' client_request.id %}" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
