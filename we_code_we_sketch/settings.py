@@ -13,8 +13,15 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 import dj_database_url
 from pathlib import Path
+import importlib.util
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env_path = BASE_DIR / "env.py"
+if env_path.exists():
+    spec = importlib.util.spec_from_file_location("env", env_path)
+    env = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(env)
 
 SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Request Received</title>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f5f5f5; font-family: Arial, sans-serif;">
+<body style="margin: 0; padding: 2.5rem; background-color: #f5f5f5; font-family: Arial, sans-serif;">
 
     <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -17,7 +17,7 @@
                             <img
                                 src="https://wecode-wesketch-c4bf588eb4a5.herokuapp.com/static/core/images/wecode_wesketch_logo.png"
                                 alt="We Code We Sketch"
-                                width="120"
+                                width="140"
                                 style="display: block; margin: 0 auto;"
                             >
                         </td>
@@ -32,7 +32,7 @@
                     </tr>
 
                     <tr>
-                        <td style="color: #333333; font-size: 15px; line-height: 1.6;">
+                        <td style="color: #333333; font-size: 15px; line-height: 1.7;">
                             <p>Hi {{ name }},</p>
 
                             <p>
@@ -40,11 +40,46 @@
                             </p>
 
                             <p>
-                                Your request has been received successfully, and a copy of your response has been sent to your email for your records.
+                                Your request has been received successfully.
                             </p>
 
                             <p>
-                                I will review your request carefully and respond shortly with the next steps.
+                                A copy of your submitted response is included below for your records.
+                            </p>
+
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 24px 0; background-color: #faf7f8; border: 1px solid #ead6de; border-radius: 8px;">
+                                <tr>
+                                    <td style="padding: 20px; color: #333333; font-size: 14px; line-height: 1.7;">
+                                        <p style="margin: 0 0 10px 0;"><strong>Full Name:</strong> {{ request_obj.full_name }}</p>
+                                        <p style="margin: 0 0 10px 0;"><strong>Email:</strong> {{ request_obj.email }}</p>
+                                        <p style="margin: 0 0 10px 0;"><strong>WhatsApp Number:</strong> {{ request_obj.phone }}</p>
+                                        <p style="margin: 0 0 10px 0;"><strong>Service Needed:</strong> {{ request_obj.get_service_display }}</p>
+                                        <p style="margin: 0 0 10px 0;">
+                                            <strong>Selected Package:</strong>
+                                            {% if request_obj.package %}
+                                                {{ request_obj.get_package_display }}
+                                            {% else %}
+                                                Not selected
+                                            {% endif %}
+                                        </p>
+                                        <p style="margin: 0 0 10px 0;">
+                                            <strong>Deadline:</strong>
+                                            {% if request_obj.deadline %}
+                                                {{ request_obj.deadline }}
+                                            {% else %}
+                                                Not provided
+                                            {% endif %}
+                                        </p>
+                                        <p style="margin: 0;">
+                                            <strong>Message:</strong><br>
+                                            {{ request_obj.message|linebreaksbr }}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p>
+                                I will review your request carefully and get back to you as soon as possible.
                             </p>
 
                             <p>

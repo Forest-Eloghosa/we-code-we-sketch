@@ -1,12 +1,52 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.core.exceptions import PermissionDenied
 from django.conf import settings
-from django.contrib.auth.decorators import login_required
-from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
+
 from .models import ClientRequest
 from .forms import ClientRequestForm
+
+
+def send_client_email(request_obj):
+    subject = "We Code We Sketch - Request Received"
+    from_email = settings.DEFAULT_FROM_EMAIL
+    to_email = [request_obj.email]
+
+    text_content = (
+        f"Hi {request_obj.full_name},\n\n"
+        f"Thank you for reaching out to We Code We Sketch.\n"
+        f"Your request has been received successfully.\n\n"
+        f"A copy of your submitted details is included below for your records.\n\n"
+        f"Full Name: {request_obj.full_name}\n"
+        f"Email: {request_obj.email}\n"
+        f"WhatsApp Number: {request_obj.phone}\n"
+        f"Service Needed: {request_obj.get_service_display()}\n"
+        f"Selected Package: {request_obj.get_package_display() if request_obj.package else 'Not selected'}\n"
+        f"Deadline: {request_obj.deadline if request_obj.deadline else 'Not provided'}\n"
+        f"Message: {request_obj.message}\n\n"
+        f"I will review your request carefully and get back to you as soon as possible.\n\n"
+        f"Kind regards,\n"
+        f"Forest\n"
+        f"We Code We Sketch"
+    )
+
+    html_content = render_to_string(
+        "emails/client_confirmation.html",
+        {
+            "name": request_obj.full_name,
+            "request_obj": request_obj,
+        }
+    )
+
+    email = EmailMultiAlternatives(
+        subject=subject,
+        body=text_content,
+        from_email=from_email,
+        to=to_email,
+    )
+    email.attach_alternative(html_content, "text/html")
+    email.send()
 
 
 def home(request):
@@ -18,6 +58,7 @@ def home(request):
         if form.is_valid():
             client_request = form.save()
 
+            # Email to business owner
             send_mail(
                 subject=f"New Client Request from {client_request.full_name}",
                 message=(
@@ -36,28 +77,17 @@ def home(request):
                 fail_silently=False,
             )
 
-            send_mail(
-                subject="We Code We Sketch - Request Received",
-                message=(
-                    f"Hi {client_request.full_name},\n\n"
-                    f"Thank you for reaching out to We Code We Sketch.\n"
-                    f"I’ve received your enquiry and will get back to you as soon as possible.\n\n"
-                    f"In the meantime, thank you for your patience.\n\n"
-                    f"Best regards,\n"
-                    f"Forest\n"
-                    f"We Code We Sketch"
-                ),
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[client_request.email],
-                fail_silently=False,
-            )
+            # Branded confirmation email to client
+            send_client_email(client_request)
 
             return redirect("thank_you")
     else:
-        form = ClientRequestForm(initial={
-            "service": selected_service,
-            "package": selected_package,
-        })
+        form = ClientRequestForm(
+            initial={
+                "service": selected_service,
+                "package": selected_package,
+            }
+        )
 
     return render(request, "core/index.html", {"form": form})
 
@@ -106,21 +136,21 @@ def request_detail(request, request_id):
     return render(request, "core/request_detail.html", context)
 
 
-def send_client_email(request_obj):
-    subject = "We Code We Sketch - Request Received"
-    from_email = "wecodewesketch@gmail.com"
-    to_email = request_obj.email
+def delete_request(request, request_id):
+    if not request.user.is_authenticated or not request.user.is_superuser:
+        raise PermissionDenied
 
-    html_content = render_to_string(
-        "emails/client_confirmation.html",
-        {
-            "name": request_obj.full_name
-        }
+    client_request = get_object_or_404(ClientRequest, id=request_id)
+
+    if request.method == "POST":
+        client_request.delete()
+        return redirect("dashboard")
+
+    return render(
+        request,
+        "core/delete_request.html",
+        {"client_request": client_request},
     )
-
-    email = EmailMultiAlternatives(subject, "", from_email, [to_email])
-    email.attach_alternative(html_content, "text/html")
-    email.send()
 
 
 def thank_you(request):

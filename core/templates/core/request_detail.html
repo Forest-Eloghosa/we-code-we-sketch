@@ -111,9 +111,14 @@
                 <p class="request-message-text">{{ client_request.message }}</p>
             </div>
 
-            <div class="request-detail-actions">
-                <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
-            </div>
+            <div class="button-group">
+            <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+
+            <form method="POST" action="{% url 'delete_request' client_request.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Delete Request</button>
+            </form>
+        </div>
         </div>
     </div>
 </section>
