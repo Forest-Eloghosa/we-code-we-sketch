@@ -1,20 +1,46 @@
+# Database files
+*.db
+*.sqlite3
 db.sqlite3
 _db.sqlite3-journal
+db.sqlite3-journal
+
+# Python
 *.pyc
 *.pyo
 *.pyd
-*.db
-*.sqlite3
-*.log
+*.egg-info/
+*.egg
+.eggs/
+dist/
+build/
+__pycache__/
+
+# Virtual environments
 .venv
 env/
-.DS_Store
-.idea/
-.vscode/
-*.swp
-pytest_cache/
-__pycache__/
-\__pycache__
 venv/
-db.sqlite3
-db.sqlite3-journal
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logging
+*.log
+pip-log.txt
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Django
+local_settings.py
+*.pot
+env.py

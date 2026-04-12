@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+
+{% block title %}403 Forbidden | We Code We Sketch{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="contact-form" style="max-width: 650px; margin: 0 auto; text-align: center;">
+            <p class="section-label">Access Denied</p>
+            <h1 style="margin-bottom: 1rem; color: var(--accent);">403 Forbidden</h1>
+            <p style="margin-bottom: 1.5rem;">
+                You do not have permission to access this page.
+            </p>
+            <a href="{% url 'home' %}" class="btn btn-primary">Return Home</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "core/base.html" %}
+
+{% block title %}Request Details | We Code We Sketch{% endblock %}
+
+{% block nav_links %}
+<li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+<li><a href="{% url 'services' %}">Services</a></li>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container dashboard-container">
+        <div class="section-heading">
+            <p class="section-label">Client Request</p>
+            <h1>Request Details</h1>
+            <p>Review the full details of this client enquiry.</p>
+        </div>
+
+        <div class="request-detail-shell">
+            <div class="request-detail-grid">
+                <article class="feature-box">
+                    <h3>Full Name</h3>
+                    <p>{{ client_request.full_name }}</p>
+                </article>
+
+                <article class="feature-box">
+                    <h3>Email</h3>
+                    <p>{{ client_request.email }}</p>
+                </article>
+
+                <article class="feature-box">
+                    <h3>WhatsApp Number</h3>
+                    <p>
+                        {% if client_request.phone %}
+                            {{ client_request.phone }}
+                        {% else %}
+                            Not provided
+                        {% endif %}
+                    </p>
+                </article>
+
+                <article class="feature-box">
+                    <h3>Service Needed</h3>
+                    <p>{{ client_request.get_service_display }}</p>
+                </article>
+
+                <article class="feature-box">
+                    <h3>Selected Package</h3>
+                    <p>
+                        {% if client_request.package %}
+                            {{ client_request.get_package_display }}
+                        {% else %}
+                            Not selected
+                        {% endif %}
+                    </p>
+                </article>
+
+                <article class="feature-box">
+                    <h3>Deadline</h3>
+                    <p>
+                        {% if client_request.deadline %}
+                            {{ client_request.deadline }}
+                        {% else %}
+                            No deadline provided
+                        {% endif %}
+                    </p>
+                </article>
+
+                <article class="feature-box">
+                    <h3>Date Submitted</h3>
+                    <p>{{ client_request.created_at|date:"d M Y, H:i" }}</p>
+                </article>
+
+                <article class="feature-box">
+                    <h3>Current Status</h3>
+                    <p>
+                        {% if client_request.status == "new" %}
+                            <span class="status-badge status-new">New</span>
+                        {% elif client_request.status == "in_progress" %}
+                            <span class="status-badge status-in-progress">In Progress</span>
+                        {% elif client_request.status == "completed" %}
+                            <span class="status-badge status-completed">Completed</span>
+                        {% endif %}
+                    </p>
+                </article>
+            </div>
+
+            <div class="request-status-panel">
+                <h3>Update Status</h3>
+                <p>Choose the current stage of this request.</p>
+
+                <form method="POST" class="request-status-form">
+                    {% csrf_token %}
+
+                    <button type="submit" name="status" value="new" class="btn btn-secondary">
+                        Mark as New
+                    </button>
+
+                    <button type="submit" name="status" value="in_progress" class="btn btn-primary">
+                        In Progress
+                    </button>
+
+                    <button type="submit" name="status" value="completed" class="btn btn-primary">
+                        Completed
+                    </button>
+                </form>
+            </div>
+
+            <div class="notice-box request-message-box">
+                <h3>Client Message</h3>
+                <p class="request-message-text">{{ client_request.message }}</p>
+            </div>
+
+            <div class="request-detail-actions">
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

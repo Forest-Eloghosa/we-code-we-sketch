@@ -1,45 +1,10 @@
+{% extends "core/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="We Code We Sketch offers digital assistance, student application support, CV review, and creative web services.">
-    <title>Services & Pricing | We Code We Sketch</title>
 
-<!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/favicon/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/favicon/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/favicon/favicon-16x16.png' %}">
-    <link rel="icon" type="image/x-icon" href="{% static 'core/favicon/favicon.ico' %}">
+{% block title %}Services & Pricing | We Code We Sketch{% endblock %}
 
-    <!-- Shortcut favicon (fallback) -->
-    <link rel="shortcut icon" href="{% static 'core/favicon/favicon.ico' %}">
-
-<!--Custom CSS-->
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-     
-</head>
-<body>
-
-<header class="site-header">
-    <div class="container">
-        <nav class="navbar">
-            <a href="{% url 'home' %}" class="logo">
-    <img src="{% static 'core/images/wecode_wesketch_logo.png' %}" alt="We Code We Sketch logo">
-</a>
-
-            <ul class="nav-links">
-                <li><a href="{% url 'home' %}#about">Why Us</a></li>
-                <li><a href="{% url 'home' %}#testimonials">Testimonials</a></li>
-                <li><a href="{% url 'home' %}#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
-
-<main class="section">
-
+{% block content %}
+<section class="section">
     <div class="container">
         <div class="section-heading">
             <p class="section-label">Services & Pricing</p>
@@ -50,11 +15,9 @@
             </p>
         </div>
 
-        <!-- EXPRESS -->
         <div class="price-card" style="margin-bottom: 2rem;">
             <h2>Express Assistance — €100</h2>
             <p>For quick help with a single digital task.</p>
-
             <ul>
                 <li>Filling out a form</li>
                 <li>Writing an email</li>
@@ -62,73 +25,61 @@
                 <li>Registering for an online service</li>
             </ul>
             <p><strong>Note:</strong> This package is ideal for one-time tasks and does not include application support.</p>
-<a href="{% url 'home' %}?service=digital-assistance#contact" class="btn btn-primary">
-    Choose this package
-</a>
+            <a href="{% url 'home' %}?service=digital-assistance&package=express-assistance#contact" class="btn btn-primary">
+                Choose this package
+            </a>
         </div>
 
-        <!-- BASIC -->
         <div class="price-card" style="margin-bottom: 2rem;">
             <h2>Basic Application Support — €200</h2>
             <p>Ideal if you only need help with admission payment.</p>
-
             <ul>
                 <li>Guidance through the admission payment process</li>
                 <li>Ensuring payment is completed correctly</li>
                 <li>Help navigating the payment portal</li>
             </ul>
-
             <p><strong>Note:</strong> Admission fees are not included.</p>
-            <a href="{% url 'home' %}?service=admission-payment#contact" class="btn btn-primary">
-    Choose this package
-</a>
+            <a href="{% url 'home' %}?service=admission-payment&package=basic-application-support#contact" class="btn btn-primary">
+                Choose this package
+            </a>
         </div>
 
-        <!-- STANDARD -->
         <div class="price-card featured-card" style="margin-bottom: 2rem;">
             <h2>Standard Application Package — €350</h2>
             <p>Best for full application support.</p>
-
             <ul>
                 <li>Application form assistance</li>
                 <li>CV review and improvements</li>
                 <li>Submission guidance</li>
             </ul>
-
             <p><strong>Optional add-ons:</strong></p>
             <ul>
                 <li>CV creation</li>
                 <li>Personal statement editing</li>
                 <li>Document formatting</li>
             </ul>
-            <a href="{% url 'home' %}?service=application-support#contact" class="btn btn-primary">
-    Choose this package
-</a>
+            <a href="{% url 'home' %}?service=application-support&package=standard-application-package#contact" class="btn btn-primary">
+                Choose this package
+            </a>
         </div>
 
-        <!-- PRIORITY -->
         <div class="price-card" style="margin-bottom: 2rem;">
             <h2>Priority Application Package — €450</h2>
             <p>For urgent, deadline-based applications.</p>
-
             <ul>
                 <li>Full application support</li>
                 <li>CV review</li>
                 <li>Priority handling</li>
                 <li>Deadline-focused submission</li>
             </ul>
-            <a href="{% url 'home' %}?service=application-support#contact" class="btn btn-primary">
-    Choose this package
-</a>
+            <a href="{% url 'home' %}?service=application-support&package=priority-application-package#contact" class="btn btn-primary">
+                Choose this package
+            </a>
         </div>
 
-        <!-- GENERAL DIGITAL -->
         <div class="price-card">
             <h2>Digital Assistance Services</h2>
-            <p>
-                I also provide support for everyday online tasks.
-            </p>
-
+            <p>I also provide support for everyday online tasks.</p>
             <ul>
                 <li>Completing forms</li>
                 <li>Email writing</li>
@@ -136,53 +87,15 @@
                 <li>Document formatting</li>
                 <li>Platform navigation</li>
             </ul>
-
             <p><strong>Pricing varies based on complexity.</strong></p>
-            <a href="{% url 'home' %}?service=digital-assistance#contact" class="btn btn-primary">
-    Choose this package
-</a>
-        </div>
-
-        <!-- CTA -->
-        <div style="text-align: center; margin-top: 3rem;">
-            <a href="{% url 'home' %}?service=general-digital#contact" class="btn btn-primary">
-                Request Support
+            <a href="{% url 'home' %}?service=digital-assistance&package=general-digital-assistance#contact" class="btn btn-primary">
+                Choose this package
             </a>
         </div>
 
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="{% url 'home' %}#contact" class="btn btn-primary">Request Support</a>
+        </div>
     </div>
-
-</main>
-
-<footer class="site-footer">
-    <div class="container">
-        <div class="social-links">
-    <span>Follow Us :</span>
-
-    <a href="https://www.facebook.com/share/1XwQMPiY3W/?mibextid=wwXIfr" target="_blank" aria-label="Facebook">
-        <i class="fa-brands fa-facebook"></i>
-    </a>
-
-    <a href="https://x.com/wecodewesketch?s=21" target="_blank" aria-label="X">
-        <i class="fa-brands fa-x-twitter"></i>
-    </a>
-
-    <a href="https://www.instagram.com/wecode_wesketch/?igsh=ZmN2cXBna3lia2Nm&utm_source=qr" target="_blank" aria-label="Instagram">
-        <i class="fa-brands fa-instagram"></i>
-    </a>
-
-    <a href="https://pin.it/C8oxH2rma" target="_blank" aria-label="Pinterest">
-        <i class="fa-brands fa-pinterest"></i>
-    </a>
-</div>
-        <p>&copy; 2026 We Code We Sketch. All rights reserved.</p>
-        <p style="text-align:center; margin-top:1rem;">
-    Trusted by students and individuals needing clear, reliable digital support.
-</p>
-    </div>
-</footer>
-<script src="{% static 'core/js/script.js' %}"></script>
-<script src="https://kit.fontawesome.com/af3ee3b7e1.js" crossorigin="anonymous"></script>
-
-</body>
-</html>
+</section>
+{% endblock %}

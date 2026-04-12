@@ -1,46 +1,9 @@
+{% extends "core/base.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Forest Eloghosa">
-    <meta name="robots" content="index, follow">
-    <title>We Code We Sketch | Creative & Digital Support Services</title>
-    <meta
-        name="description"
-        content="We Code We Sketch offers digital assistance, student application support, CV review, and creative web services."
-    >
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
-</head>
-<body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+{% block title %}We Code We Sketch | Creative & Digital Support Services{% endblock %}
 
-    <header class="site-header">
-        <div class="container">
-            <nav class="navbar" aria-label="Main navigation">
-                <a href="/" class="logo">We Code We Sketch</a>
-
-                <button
-                    class="menu-toggle"
-                    id="menu-toggle"
-                    aria-label="Toggle navigation menu"
-                    aria-expanded="false"
-                    aria-controls="nav-list"
-                >
-                    ☰
-                </button>
-
-                <ul class="nav-links" id="nav-list">
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#about">Why Us</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-
+{% block hero %}
 <section class="hero" aria-labelledby="hero-heading">
     <div class="hero-text-content">
         <p class="tagline">Digital Support & Application Assistance</p>
@@ -54,7 +17,7 @@
 
         <div class="hero-buttons">
             <a href="#contact" class="btn btn-primary">Request Assistance</a>
-            <a href="#services" class="btn btn-secondary">Explore Services</a>
+            <a href="{% url 'services' %}" class="btn btn-secondary">Explore Services & Pricing</a>
         </div>
 
         <div class="trust-badges" aria-label="Business highlights">
@@ -91,189 +54,209 @@
         </div>
     </div>
 </section>
+{% endblock %}
 
-        <section id="about" class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label">Why Choose Us</p>
-                    <h2>Support that feels clear, calm and professional</h2>
-                </div>
+{% block content %}
+<section id="about" class="section">
+    <div class="container">
+        <div class="section-heading">
+            <p class="section-label">Why Choose Us</p>
+            <h2>Support that feels clear, calm and professional</h2>
+        </div>
 
-                <div class="feature-grid">
-                    <article class="feature-box">
-                        <h3>Affordable</h3>
-                        <p>Clear service pricing designed to remain accessible and fair.</p>
-                    </article>
+        <div class="feature-grid">
+            <article class="feature-box">
+                <h3>Affordable</h3>
+                <p>Clear service pricing designed to remain accessible and fair.</p>
+            </article>
 
-                    <article class="feature-box">
-                        <h3>Reliable</h3>
-                        <p>Clients receive practical support, honest communication and respectful service.</p>
-                    </article>
+            <article class="feature-box">
+                <h3>Reliable</h3>
+                <p>Clients receive practical support, honest communication and respectful service.</p>
+            </article>
 
-                    <article class="feature-box">
-                        <h3>Supportive</h3>
-                        <p>Helpful for people who feel overwhelmed by online systems or paperwork.</p>
-                    </article>
+            <article class="feature-box">
+                <h3>Supportive</h3>
+                <p>Helpful for people who feel overwhelmed by online systems or paperwork.</p>
+            </article>
 
-                    <article class="feature-box">
-                        <h3>Skilled</h3>
-                        <p>A blend of digital admin help, CV support and web development skills.</p>
-                    </article>
-                </div>
+            <article class="feature-box">
+                <h3>Skilled</h3>
+                <p>A blend of digital admin help, CV support and web development skills.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="important-info" class="section section-alt">
+    <div class="container">
+        <div class="section-heading">
+            <p class="section-label">Important Information</p>
+            <h2>Please read before booking</h2>
+        </div>
+
+        <div class="notice-box">
+            <ul>
+                <li>Services do not guarantee admission into any institution.</li>
+                <li>Visa or immigration services are not provided.</li>
+                <li>Admission fees are not included in service fees.</li>
+                <li>Service fees are non-refundable once work has started.</li>
+                <li>Additional charges may apply for extra documents or currency conversion costs.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="testimonials" class="section">
+    <div class="container">
+        <div class="section-heading">
+            <p class="section-label">Testimonials</p>
+            <h2>What clients can expect</h2>
+        </div>
+
+        <div class="testimonial-grid">
+            <article class="testimonial-card">
+                <p class="testimonial-text">
+                    “I had a really good experience working with Forest. He was kind, patient, and always ready to help whenever I was confused. He explained everything in a simple way, which made the whole application process feel much less stressful.
+
+                    I’m truly grateful for his support and encouragement, and I would definitely recommend him to anyone who needs guidance with their application.”
+                </p>
+                <p class="testimonial-name">— International Student</p>
+            </article>
+
+            <article class="testimonial-card">
+                <p class="testimonial-text">
+                    Clear, patient guidance designed to make online applications and digital tasks feel less overwhelming.
+                </p>
+                <p class="testimonial-name">— What clients can expect</p>
+            </article>
+
+            <article class="testimonial-card">
+                <p class="testimonial-text">
+                    Support is provided with professionalism, respect, and careful attention to detail throughout the process.
+                </p>
+                <p class="testimonial-name">— Service promise</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section section-alt">
+    <div class="container">
+        <div class="section-heading">
+            <p class="section-label">Contact</p>
+            <h2>Request assistance</h2>
+            <p>
+                Fill in the form below and I’ll get back to you as soon as possible, or message me directly on WhatsApp.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+            <div class="contact-info-box">
+                <h3>Business Details</h3>
+                <p><strong>Business Name:</strong> We Code We Sketch</p>
+                <p><strong>Email:</strong> wecodewesketch@gmail.com</p>
+                <p><strong>WhatsApp:</strong> +353899647256</p>
+
+                <a
+                    href="https://wa.me/353899647256?text=Hello%20I%20would%20like%20to%20request%20support%20from%20We%20Code%20We%20Sketch"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn-primary"
+                >
+                    Chat on WhatsApp
+                </a>
             </div>
-        </section>
 
-        <section id="important-info" class="section section-alt">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label">Important Information</p>
-                    <h2>Please read before booking</h2>
-                </div>
+            <div>
+                <form class="contact-form" method="POST">
+                    <p class="form-intro">
+                        Please fill out this form to request support from We Code We Sketch.
 
-                <div class="notice-box">
-                    <ul>
-                        <li>Services do not guarantee admission into any institution.</li>
-                        <li>Visa or immigration services are not provided.</li>
-                        <li>Admission fees are not included in service fees.</li>
-                        <li>Service fees are non-refundable once work has started.</li>
-                        <li>Additional charges may apply for extra documents or currency conversion costs.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+                        Your information will be handled with care and respect, and will only be used to help you with your request. I do not share your details with anyone unless it is necessary to complete a service you have requested.
 
-        <section id="testimonials" class="section">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label">Testimonials</p>
-                    <h2>What clients can expect</h2>
-                    <p>
-                        You can replace these with real client reviews later.
+                        By submitting this form, you agree that your information can be used to provide support and communicate with you regarding your enquiry.
                     </p>
-                </div>
 
-                <div class="testimonial-grid">
-                    <article class="testimonial-card">
-                        <p class="testimonial-text">
-                            “The process was smooth, affordable and easy to understand. I felt supported
-                            from start to finish.”
-                        </p>
-                        <p class="testimonial-name">— Future Client Review</p>
-                    </article>
+                    {% csrf_token %}
 
-                    <article class="testimonial-card">
-                        <p class="testimonial-text">
-                            “I needed help with an online application and CV review. Everything was clearly
-                            explained and handled professionally.”
-                        </p>
-                        <p class="testimonial-name">— Future Client Review</p>
-                    </article>
+                    {% if form.errors %}
+                        <div class="form-errors" role="alert">
+                            <p>Please correct the errors below.</p>
+                        </div>
+                    {% endif %}
 
-                    <article class="testimonial-card">
-                        <p class="testimonial-text">
-                            “Very patient, reliable and helpful. I would definitely recommend this service
-                            to anyone struggling with online systems.”
-                        </p>
-                        <p class="testimonial-name">— Future Client Review</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section section-alt">
-            <div class="container">
-                <div class="section-heading">
-                    <p class="section-label">Contact</p>
-                    <h2>Request assistance</h2>
-                    <p>
-                        Fill in the form below or contact me directly on WhatsApp.
-                    </p>
-                </div>
-
-                <div class="contact-grid">
-                    <div class="contact-info-box">
-                        <h3>Business Details</h3>
-                        <p><strong>Business Name:</strong> We Code We Sketch</p>
-                        <p><strong>Email:</strong> wecodewesketch@gmail.com</p>
-                        <p><strong>WhatsApp:</strong> +2348140855447</p>
-
-                    <a
-                        href="https://wa.me/2348140855447?text=Hello%20I%20would%20like%20to%20request%20support%20from%20We%20Code%20We%20Sketch"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-primary"
-                        >
-                        Chat on WhatsApp
-                    </a>
+                    <div class="form-group">
+                        <label for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
+                        {{ form.full_name }}
+                        {% if form.full_name.errors %}
+                            <div class="field-error">{{ form.full_name.errors }}</div>
+                        {% endif %}
                     </div>
 
-                                        <form
-                        class="contact-form"
-                        action="https://formspree.io/f/YOUR_FORM_ID"
-                        method="POST"
-                    >
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
+                    <div class="form-group">
+                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+                        {{ form.email }}
+                        {% if form.email.errors %}
+                            <div class="field-error">{{ form.email.errors }}</div>
+                        {% endif %}
+                    </div>
 
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
+                    <div class="form-group">
+                        <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+                        {{ form.phone }}
+                        {% if form.phone.errors %}
+                            <div class="field-error">{{ form.phone.errors }}</div>
+                        {% endif %}
+                    </div>
 
-                        <div class="form-group">
-                            <label for="phone">WhatsApp Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
+                    <div class="form-group">
+                        <label for="{{ form.service.id_for_label }}">{{ form.service.label }}</label>
+                        {{ form.service }}
+                        {% if form.service.errors %}
+                            <div class="field-error">{{ form.service.errors }}</div>
+                        {% endif %}
+                    </div>
 
-                        <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <select id="service" name="service" required>
-                                <option value="">Select a service</option>
-                                <option value="digital-assistance">Digital Assistance</option>
-                                <option value="application-support">Student Application Support</option>
-                                <option value="admission-payment">Admission Payment Assistance</option>
-                                <option value="cv-review">CV Review</option>
-                                <option value="portfolio-website">Portfolio Website</option>
-                            </select>
-                        </div>
+                    <div class="form-group">
+                        <label for="{{ form.package.id_for_label }}">{{ form.package.label }}</label>
+                        {{ form.package }}
+                        {% if form.package.errors %}
+                            <div class="field-error">{{ form.package.errors }}</div>
+                        {% endif %}
+                    </div>
 
-                        <div class="form-group">
-                            <label for="deadline">Deadline (if any)</label>
-                            <input type="text" id="deadline" name="deadline" placeholder="Example: 30 March 2026">
-                        </div>
+                    <div class="form-group">
+                        <label for="{{ form.deadline.id_for_label }}">{{ form.deadline.label }}</label>
+                        {{ form.deadline }}
+                        {% if form.deadline.errors %}
+                            <div class="field-error">{{ form.deadline.errors }}</div>
+                        {% endif %}
+                    </div>
 
-                        <div class="form-group">
-                            <label for="message">How can I help?</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="6"
-                                placeholder="Tell me a little about the support you need..."
-                                required
-                            ></textarea>
-                        </div>
-
-                    <input type="hidden" name="_subject" value="New client request from We Code We Sketch">
-                    <input type="hidden" name="_next" value="thank-you.html">
+                    <div class="form-group">
+                        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+                        {{ form.message }}
+                        {% if form.message.errors %}
+                            <div class="field-error">{{ form.message.errors }}</div>
+                        {% endif %}
+                    </div>
 
                     <button type="submit" class="btn btn-primary">Request Support</button>
+
                     <p class="form-note">
                         I do not provide visa or immigration services. Service fees do not include admission fees.
                     </p>
                 </form>
-                </div>
+
+                <p style="margin-top:1rem;">
+                    Prefer a simple form?
+                    <a href="https://forms.gle/gHKR2K4RLhMvJ2t7A" target="_blank" rel="noopener noreferrer">
+                        Fill out this quick request form
+                    </a>
+                </p>
             </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <p id="footer-text">&copy; 2026 We Code We Sketch. All rights reserved.</p>
         </div>
-    </footer>
-
-<script src="{% static 'core/js/script.js' %}"></script>
-</body>
-</html>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,110 @@
+{% extends "core/base.html" %}
+
+{% block title %}Dashboard | We Code We Sketch{% endblock %}
+
+{% block nav_links %}
+<li><a href="{% url 'home' %}">Home</a></li>
+<li><a href="{% url 'services' %}">Services & Pricing</a></li>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container dashboard-container">
+        <div class="section-heading">
+            <p class="section-label">Dashboard</p>
+            <h1>Client Request Overview</h1>
+            <p>Track incoming requests and monitor their progress.</p>
+        </div>
+
+        <div class="dashboard-stats">
+            <article class="card">
+                <h3>Total Requests</h3>
+                <p class="price">{{ total_requests }}</p>
+            </article>
+
+            <article class="card">
+                <h3>New</h3>
+                <p class="price">{{ new_requests }}</p>
+            </article>
+
+            <article class="card">
+                <h3>In Progress</h3>
+                <p class="price">{{ in_progress_requests }}</p>
+            </article>
+
+            <article class="card">
+                <h3>Completed</h3>
+                <p class="price">{{ completed_requests }}</p>
+            </article>
+        </div>
+
+        <div class="section-heading" style="margin-top: 3rem;">
+            <h2>Recent Client Requests</h2>
+        </div>
+
+        <div class="contact-form">
+            {% if requests %}
+                <div class="dashboard-table-wrapper">
+                    <table class="dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Service</th>
+                                <th>Package</th>
+                                <th>Status</th>
+                                <th>Deadline</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for request_item in requests %}
+                                <tr class="clickable-row" data-href="{% url 'request_detail' request_item.id %}">
+                                    <td>{{ request_item.full_name }}</td>
+                                    <td>{{ request_item.email }}</td>
+                                    <td>{{ request_item.get_service_display }}</td>
+                                    <td>
+                                        {% if request_item.package %}
+                                            {{ request_item.get_package_display }}
+                                        {% else %}
+                                            Not selected
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                    {% if request_item.status == "new" %}
+                                        <span class="status-badge status-new">New</span>
+                                    {% elif request_item.status == "in_progress" %}
+                                        <span class="status-badge status-in-progress">In Progress</span>
+                                    {% elif request_item.status == "completed" %}
+                                        <span class="status-badge status-completed">Completed</span>
+                                    {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if request_item.deadline %}
+                                            {{ request_item.deadline }}
+                                        {% else %}
+                                            —
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ request_item.created_at|date:"d M Y, H:i" }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p>No client requests yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block extra_scripts %}
+<script>
+    document.querySelectorAll(".clickable-row").forEach(row => {
+        row.addEventListener("click", () => {
+            window.location.href = row.dataset.href;
+        });
+    });
+</script>
+{% endblock %}
