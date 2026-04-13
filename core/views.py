@@ -49,6 +49,62 @@ def send_client_email(request_obj):
     email.send()
 
 
+def send_status_update_email(request_obj):
+    subject = "We Code We Sketch - Request Status Updated"
+    from_email = settings.DEFAULT_FROM_EMAIL
+    to_email = [request_obj.email]
+
+    status = request_obj.status
+
+    if status == "completed":
+        message = (
+            "Your request has now been completed.\n\n"
+            "I hope you are satisfied with the outcome.\n\n"
+            "If you need any revisions or further support, please feel free to reply to this email.\n\n"
+            "Thank you for choosing We Code We Sketch."
+        )
+    elif status == "in_progress":
+        message = (
+            "Your request is currently being worked on.\n\n"
+            "I will continue to keep you informed as your request progresses."
+        )
+    else:
+        message = (
+            "Your request has been received and is being reviewed.\n\n"
+            "I will keep you informed as it progresses."
+        )
+
+    text_content = (
+        f"Hi {request_obj.full_name},\n\n"
+        f"Your request status has been updated.\n\n"
+        f"Current Status: {request_obj.get_status_display()}\n"
+        f"Service Needed: {request_obj.get_service_display()}\n"
+        f"Selected Package: "
+        f"{request_obj.get_package_display() if request_obj.package else 'Not selected'}\n\n"
+        f"{message}\n\n"
+        f"Kind regards,\n"
+        f"Forest\n"
+        f"We Code We Sketch"
+    )
+
+    html_content = render_to_string(
+        "emails/status_update.html",
+        {
+            "request_obj": request_obj,
+            "message": message,
+        }
+    )
+
+    email = EmailMultiAlternatives(
+        subject=subject,
+        body=text_content,
+        from_email=from_email,
+        to=to_email,
+    )
+    email.attach_alternative(html_content, "text/html")
+    email.send()
+
+
 def home(request):
     selected_service = request.GET.get("service")
     selected_package = request.GET.get("package")
@@ -124,8 +180,12 @@ def request_detail(request, request_id):
         new_status = request.POST.get("status")
 
         if new_status in ["new", "in_progress", "completed"]:
-            client_request.status = new_status
-            client_request.save()
+            old_status = client_request.status
+
+            if old_status != new_status:
+                client_request.status = new_status
+                client_request.save()
+                send_status_update_email(client_request)
 
         return redirect("request_detail", request_id=request_id)
 

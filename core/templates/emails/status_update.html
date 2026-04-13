@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Status Updated</title>
+</head>
+<body style="margin: 0; padding: 2.5rem; background-color: #f5f5f5; font-family: Arial, sans-serif;">
+
+    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td align="center" style="padding: 32px 16px;">
+
+                <table width="600" cellpadding="0" cellspacing="0" border="0" style="background-color: #ffffff; padding: 32px; border-radius: 8px; max-width: 600px; width: 100%;">
+                    
+                    <tr>
+                        <td align="center" style="padding-bottom: 16px;">
+                            <img
+                                src="https://wecode-wesketch-c4bf588eb4a5.herokuapp.com/static/core/images/wecode_wesketch_logo.png"
+                                alt="We Code We Sketch"
+                                width="140"
+                                style="display: block; margin: 0 auto;"
+                            >
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center">
+                            <h2 style="color: #8b2c4a; margin: 0 0 16px 0;">
+                                Request Status Updated
+                            </h2>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="color: #333333; font-size: 15px; line-height: 1.7;">
+                            <p>Hi {{ request_obj.full_name }},</p>
+
+                            <p>
+                                Your request status has been updated.
+                            </p>
+
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin: 24px 0; background-color: #faf7f8; border: 1px solid #ead6de; border-radius: 8px;">
+                                <tr>
+                                    <td style="padding: 20px; color: #333333; font-size: 14px; line-height: 1.7;">
+                                        <p style="margin: 0 0 10px 0;">
+                                            <strong>Current Status:</strong> {{ request_obj.get_status_display }}
+                                        </p>
+                                        <p style="margin: 0 0 10px 0;">
+                                            <strong>Service Needed:</strong> {{ request_obj.get_service_display }}
+                                        </p>
+                                        <p style="margin: 0;">
+                                            <strong>Selected Package:</strong>
+                                            {% if request_obj.package %}
+                                                {{ request_obj.get_package_display }}
+                                            {% else %}
+                                                Not selected
+                                            {% endif %}
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="white-space: pre-line;">{{ message }}</p>
+
+                            <p>
+                                Kind regards,<br>
+                                <strong>Forest</strong><br>
+                                We Code We Sketch
+                            </p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="center" style="padding-top: 24px; font-size: 12px; color: #999999;">
+                            © 2026 We Code We Sketch
+                        </td>
+                    </tr>
+
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
