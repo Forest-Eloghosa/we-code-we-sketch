@@ -1,0 +1,169 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Forest Eloghosa">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="{% block meta_description %}We Code We Sketch offers digital assistance, student application support, CV review, and creative web services.{% endblock %}">
+    <title>{% block title %}We Code We Sketch{% endblock %}</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'core/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'core/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'core/favicon/favicon-16x16.png' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'core/favicon/favicon.ico' %}">
+    <link rel="shortcut icon" href="{% static 'core/favicon/favicon.ico' %}">
+
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    {% block header %}
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="{% url 'home' %}" class="logo">
+                    <img src="{% static 'core/images/wecode_wesketch_logo.png' %}" alt="We Code We Sketch logo">
+                </a>
+
+                <button
+                    class="menu-toggle"
+                    id="menu-toggle"
+                    aria-label="Toggle navigation menu"
+                    aria-expanded="false"
+                    aria-controls="nav-list"
+                >
+                    ☰
+                </button>
+
+                <ul class="nav-links" id="nav-list">
+                    <li>
+                        <a href="{% url 'home' %}" 
+                        class="{% if request.path == '/' %}active{% endif %}">
+                        Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'services' %}" 
+                        class="{% if '/services' in request.path %}active{% endif %}">
+                        Services & Pricing
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'home' %}#about"
+                        class="{% if '#about' in request.get_full_path %}active{% endif %}">
+                        Why Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'home' %}#testimonials"
+                        class="{% if '#testimonials' in request.get_full_path %}active{% endif %}">
+                        Testimonials
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{% url 'contact' %}" 
+                        class="{% if '/contact' in request.path %}active{% endif %}">
+                        Contact
+                        </a>
+                    </li>
+                    {% if user.is_authenticated and user.is_superuser %}
+                    <li class="nav-user">Admin</li>
+
+                    <li>
+                        <a href="{% url 'dashboard' %}" class="dashboard-link {% if '/dashboard' in request.path %}active{% endif %}">
+                            Dashboard
+                            {% if new_requests_count > 0 %}
+                                <span class="notification-badge">{{ new_requests_count }}</span>
+                            {% endif %}
+                        </a>
+                    </li>
+
+                    <li>
+                            <form method="POST" action="{% url 'logout' %}" class="nav-logout-form">
+                                {% csrf_token %}
+                                <button type="submit" class="nav-link-button">Logout</button>
+                            </form>
+                    </li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+            {% block hero %}{% endblock %}
+        </div>
+    </header>
+    {% endblock %}
+
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block footer %}
+    <footer class="site-footer">
+        <div class="container">
+            <div class="social-links">
+                <span>Follow Us :</span>
+
+                <a href="https://www.facebook.com/share/1XwQMPiY3W/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
+                <a href="https://x.com/wecodewesketch?s=21" target="_blank" rel="noopener noreferrer" aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+
+                <a href="https://www.instagram.com/wecode_wesketch/?igsh=ZmN2cXBna3lia2Nm&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://pin.it/C8oxH2rma" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                    <i class="fa-brands fa-pinterest"></i>
+                </a>
+            </div>
+
+            <p id="footer-text">&copy; 2026 We Code We Sketch. All rights reserved.</p>
+            <p style="text-align:center; margin-top:1rem;">
+                Trusted by students and individuals needing clear, reliable digital support.
+            </p>
+        </div>
+    </footer>
+    {% endblock %}
+
+    <script src="{% static 'core/js/script.js' %}"></script>
+    <script src="https://kit.fontawesome.com/af3ee3b7e1.js" crossorigin="anonymous"></script>
+    {% block extra_scripts %}{% endblock %}
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const firstErrorField = document.querySelector(
+        ".has-error input, .has-error select, .has-error textarea"
+    );
+
+    const errorSummary = document.getElementById("form-error-summary");
+
+    if (firstErrorField) {
+        firstErrorField.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        firstErrorField.focus();
+    } else if (errorSummary) {
+        errorSummary.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+        errorSummary.focus();
+    }
+});
+</script>  
+</body>
+</html>

@@ -164,6 +164,34 @@ ul {
 .nav-links a.active {
     color: var(--accent);
     font-weight: 700;
+    position: relative;
+}
+
+/* Underline animation */
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent);
+    border-radius: 2px;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.25s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-logout-form {
@@ -503,6 +531,55 @@ ul {
 }
 
 /* =========================================
+   HOW IT WORKS
+========================================= */
+.how-it-works-grid {
+    margin-top: 2rem;
+}
+
+.how-step {
+    position: relative;
+    text-align: left;
+    padding-top: 3.5rem;
+}
+
+.how-step-number {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.5rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--accent-soft);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    box-shadow: var(--shadow-badge);
+}
+
+.how-step h3 {
+    margin-bottom: 0.75rem;
+}
+
+.how-it-works-note {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.how-it-works-note p {
+    display: inline-block;
+    background-color: var(--white);
+    border: 1px solid var(--accent-soft-border);
+    border-radius: 999px;
+    padding: 0.8rem 1.2rem;
+    box-shadow: var(--shadow-soft);
+    color: var(--text-main);
+}
+
+/* =========================================
    13. PRICING SECTION
 ========================================= */
 .price {
@@ -574,6 +651,11 @@ ul {
     margin-top: 1rem;
     font-size: 0.95rem;
     color: var(--text-muted);
+}
+
+.form-note-alt {
+    text-align: center;
+    margin-top: 0.65rem;
 }
 
 .form-errors {

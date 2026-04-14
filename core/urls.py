@@ -8,4 +8,5 @@ urlpatterns = [
     path("dashboard/", views.dashboard, name="dashboard"),
     path("dashboard/request/<int:request_id>/", views.request_detail, name="request_detail"),
     path("dashboard/request/<int:request_id>/delete/", views.delete_request, name="delete_request"),
+    path("contact/", views.contact, name="contact"),
 ]

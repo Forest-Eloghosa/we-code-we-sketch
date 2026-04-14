@@ -212,6 +212,21 @@ def delete_request(request, request_id):
         {"client_request": client_request},
     )
 
+def contact(request):
+    if request.method == "POST":
+        form = ClientRequestForm(request.POST)
+        if form.is_valid():
+            client_request = form.save()
+
+            # Send emails (same logic from home)
+            send_client_email(client_request)
+
+            return redirect("thank_you")
+    else:
+        form = ClientRequestForm()
+
+    return render(request, "core/contact.html", {"form": form})
+
 
 def thank_you(request):
     return render(request, "core/thank_you.html")

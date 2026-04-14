@@ -1,4 +1,4 @@
-{% extends "core/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block title %}We Code We Sketch | Creative & Digital Support Services{% endblock %}
@@ -57,6 +57,52 @@
 {% endblock %}
 
 {% block content %}
+<section id="how-it-works" class="section">
+    <div class="container">
+        <div class="section-heading">
+            <p class="section-label">How It Works</p>
+            <h2>A simple process from start to finish</h2>
+            <p>
+                Getting support is straightforward. Here is what to expect after you submit your request.
+            </p>
+        </div>
+
+        <div class="feature-grid how-it-works-grid">
+            <article class="feature-box how-step">
+                <div class="how-step-number">1</div>
+                <h3>Submit Your Request</h3>
+                <p>
+                    Fill in the contact form with the support you need, your preferred service,
+                    and any helpful details about your request.
+                </p>
+            </article>
+
+            <article class="feature-box how-step">
+                <div class="how-step-number">2</div>
+                <h3>I Review and Respond</h3>
+                <p>
+                    I will review your enquiry carefully and get back to you with the next steps,
+                    confirmation, or any clarification needed.
+                </p>
+            </article>
+
+            <article class="feature-box how-step">
+                <div class="how-step-number">3</div>
+                <h3>We Move Forward Together</h3>
+                <p>
+                    Once everything is clear, I will begin supporting you with your request and
+                    keep you updated throughout the process.
+                </p>
+            </article>
+        </div>
+
+        <div class="how-it-works-note">
+            <p>
+                <strong>Response time:</strong> I usually reply within 24–48 hours.
+            </p>
+        </div>
+    </div>
+</section>
 <section id="about" class="section">
     <div class="container">
         <div class="section-heading">
@@ -141,121 +187,36 @@
     </div>
 </section>
 
-<section id="contact" class="section section-alt">
+<section class="section">
+    <div class="container">
+        <div class="notice-box">
+            <h3>What happens after you submit your request?</h3>
+            <p>
+                I usually respond within 24–48 hours. You will also receive a confirmation email with a copy of your request for your records.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
     <div class="container">
         <div class="section-heading">
-            <p class="section-label">Contact</p>
-            <h2>Request assistance</h2>
+            <h2>Ready to get support?</h2>
             <p>
-                Fill in the form below and I’ll get back to you as soon as possible, or message me directly on WhatsApp.
+                Submit your request and I will guide you through the next steps.
             </p>
         </div>
 
-        <div class="contact-grid">
-            <div class="contact-info-box">
-                <h3>Business Details</h3>
-                <p><strong>Business Name:</strong> We Code We Sketch</p>
-                <p><strong>Email:</strong> wecodewesketch@gmail.com</p>
-                <p><strong>WhatsApp:</strong> +353899647256</p>
+        <div class="button-group">
+            <a href="{% url 'contact' %}" class="btn btn-primary">
+                Start Your Request
+            </a>
 
-                <a
-                    href="https://wa.me/353899647256?text=Hello%20I%20would%20like%20to%20request%20support%20from%20We%20Code%20We%20Sketch"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn btn-primary"
-                >
-                    Chat on WhatsApp
-                </a>
-            </div>
-
-            <div>
-                <form class="contact-form" method="POST">
-                    <p class="form-intro">
-                        Please fill out this form to request support from We Code We Sketch.
-
-                        Your information will be handled with care and respect, and will only be used to help you with your request. I do not share your details with anyone unless it is necessary to complete a service you have requested.
-
-                        By submitting this form, you agree that your information can be used to provide support and communicate with you regarding your enquiry.
-                    </p>
-
-                    {% csrf_token %}
-
-                    {% if form.errors %}
-                    <div class="form-errors" role="alert" tabindex="-1" id="form-error-summary">
-                        <p>Please correct the highlighted fields below.</p>
-                    </div>
-                    {% endif %}
-
-                    <div class="form-group{% if form.full_name.errors %} has-error{% endif %}">
-                        <label for="{{ form.full_name.id_for_label }}">{{ form.full_name.label }}</label>
-                        {{ form.full_name }}
-                        {% if form.full_name.errors %}
-                            <div class="field-error">{{ form.full_name.errors }}</div>
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group{% if form.email.errors %} has-error{% endif %}">
-                        <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
-                        {{ form.email }}
-                        {% if form.email.errors %}
-                            <div class="field-error">{{ form.email.errors }}</div>
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group{% if form.phone.errors %} has-error{% endif %}">
-                        <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
-                        {{ form.phone }}
-                        {% if form.phone.errors %}
-                            <div class="field-error">{{ form.phone.errors }}</div>
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group{% if form.service.errors %} has-error{% endif %}">
-                        <label for="{{ form.service.id_for_label }}">{{ form.service.label }}</label>
-                        {{ form.service }}
-                        {% if form.service.errors %}
-                            <div class="field-error">{{ form.service.errors }}</div>
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group{% if form.package.errors %} has-error{% endif %}">
-                        <label for="{{ form.package.id_for_label }}">{{ form.package.label }}</label>
-                        {{ form.package }}
-                        {% if form.package.errors %}
-                            <div class="field-error">{{ form.package.errors }}</div>
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group{% if form.deadline.errors %} has-error{% endif %}">
-                        <label for="{{ form.deadline.id_for_label }}">{{ form.deadline.label }}</label>
-                        {{ form.deadline }}
-                        {% if form.deadline.errors %}
-                            <div class="field-error">{{ form.deadline.errors }}</div>
-                        {% endif %}
-                    </div>
-
-                    <div class="form-group{% if form.message.errors %} has-error{% endif %}">
-                        <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
-                        {{ form.message }}
-                        {% if form.message.errors %}
-                            <div class="field-error">{{ form.message.errors }}</div>
-                        {% endif %}
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Request Support</button>
-
-                    <p class="form-note">
-                        I do not provide visa or immigration services. Service fees do not include admission fees.
-                    </p>
-                </form>
-
-                <p style="margin-top:1rem;">
-                    Prefer a simple form?
-                    <a href="https://forms.gle/gHKR2K4RLhMvJ2t7A" target="_blank" rel="noopener noreferrer">
-                        Fill out this quick request form
-                    </a>
-                </p>
-            </div>
+            <a href="https://api.whatsapp.com/send/?phone=353899647256"
+               class="btn btn-secondary"
+               target="_blank">
+                Chat on WhatsApp
+            </a>
         </div>
     </div>
 </section>
