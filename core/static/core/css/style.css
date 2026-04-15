@@ -246,12 +246,17 @@ ul {
     font-size: 2.7rem;
     line-height: 1.2;
     margin-bottom: 1rem;
+    max-width: 650px;
 }
 
 .hero-description {
     max-width: 650px;
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
+}
+
+.hero-buttons {
+    margin-top: 1.5rem;
 }
 
 /* =========================================
@@ -284,7 +289,7 @@ ul {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 1.5rem;
+    margin-top: 2rem;
 }
 
 .trust-badges span {
@@ -588,9 +593,48 @@ ul {
     color: var(--text-main);
 }
 
+.price-card h2 {
+    color: var(--text-main);
+    margin-bottom: 0.8rem;
+    font-size: 1.9rem;
+}
+
+.price-card ul {
+    margin: 1rem 0 1.25rem;
+}
+
+.price-card li {
+    margin-bottom: 0.55rem;
+}
+
+.price-card .btn {
+    margin-top: 0.5rem;
+}
+
 .featured-card {
     border: 2px solid var(--accent);
     transform: translateY(-4px);
+    box-shadow: 0 18px 45px rgba(139, 46, 86, 0.12);
+}
+
+.price-card {
+    padding: 1.8rem;
+}
+
+.price-card p {
+    margin-bottom: 0.8rem;
+}
+
+.pricing-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.pricing-stack .price-card {
+    margin-bottom: 0;
 }
 
 /* =========================================

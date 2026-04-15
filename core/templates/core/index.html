@@ -6,18 +6,30 @@
 {% block hero %}
 <section class="hero" aria-labelledby="hero-heading">
     <div class="hero-text-content">
-        <p class="tagline">Digital Support & Application Assistance</p>
-        <h1 id="hero-heading">
-            Helping students and individuals navigate online tasks with clarity and confidence
+        <span class="tagline">Supporting students & individuals</span>
+        <h1>
+            Get help with applications, forms, and digital tasks — done right the first time
         </h1>
-        <p class="hero-description">
-            From application support and CV review to digital admin help and portfolio
-            websites, We Code We Sketch offers affordable, reliable and practical support.
-        </p>
+            <p class="hero-description">
+                I support students and individuals with CVs, applications, and online processes 
+                so you don’t have to figure everything out alone.
+                <strong style="color: var(--accent);">Most requests are reviewed within 24–48 hours.</strong> Limited availability each week.
+            </p>
 
         <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Request Assistance</a>
-            <a href="{% url 'services' %}" class="btn btn-secondary">Explore Services & Pricing</a>
+          <a href="{% url 'contact' %}" class="btn btn-primary">
+                 Start Your Request
+            </a>
+
+          <a href="{% url 'services' %}" class="btn btn-secondary">
+                 View Services
+            </a>
+        </div>
+
+        <div class="trust-badges">
+            <span>✔ No obligation</span>
+            <span>✔ Clear communication</span>
+            <span>✔ Private & secure</span>
         </div>
 
         <div class="trust-badges" aria-label="Business highlights">
@@ -137,8 +149,8 @@
 <section id="important-info" class="section section-alt">
     <div class="container">
         <div class="section-heading">
-            <p class="section-label">Important Information</p>
-            <h2>Please read before booking</h2>
+            <p class="section-label">Before You Book</p>
+            <h2>Important information to keep in mind</h2>
         </div>
 
         <div class="notice-box">

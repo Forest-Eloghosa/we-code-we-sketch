@@ -213,17 +213,41 @@ def delete_request(request, request_id):
     )
 
 def contact(request):
+    selected_service = request.GET.get("service")
+    selected_package = request.GET.get("package")
+
     if request.method == "POST":
         form = ClientRequestForm(request.POST)
         if form.is_valid():
             client_request = form.save()
 
-            # Send emails (same logic from home)
-            send_client_email(client_request)
+            send_mail(
+                subject=f"New Client Request from {client_request.full_name}",
+                message=(
+                    f"A new enquiry has been submitted.\n\n"
+                    f"Full Name: {client_request.full_name}\n"
+                    f"Email: {client_request.email}\n"
+                    f"WhatsApp Number: {client_request.phone}\n"
+                    f"Service Needed: {client_request.get_service_display()}\n"
+                    f"Selected Package: "
+                    f"{client_request.get_package_display() if client_request.package else 'Not selected'}\n"
+                    f"Deadline: {client_request.deadline if client_request.deadline else 'Not provided'}\n"
+                    f"Message:\n{client_request.message}\n"
+                ),
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=[settings.EMAIL_HOST_USER],
+                fail_silently=False,
+            )
 
+            send_client_email(client_request)
             return redirect("thank_you")
     else:
-        form = ClientRequestForm()
+        form = ClientRequestForm(
+            initial={
+                "service": selected_service,
+                "package": selected_package,
+            }
+        )
 
     return render(request, "core/contact.html", {"form": form})
 
