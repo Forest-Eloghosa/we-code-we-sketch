@@ -31,7 +31,7 @@
 
             <p><strong>Best for:</strong> quick tasks that do not require full application support.</p>
 
-            <a href="{% url 'contact' %}?service=digital-assistance&package=express-assistance#contact" class="btn btn-primary">
+            <a href="{% url 'contact' %}?service=digital-assistance&package=express-assistance" class="btn btn-primary">
                 Choose this option
             </a>
         </div>
@@ -49,7 +49,7 @@
             <p><strong>Best for:</strong> those who already have their application in place and need payment support only.</p>
             <p><strong>Note:</strong> Admission fees are not included.</p>
 
-            <a href="{% url 'contact' %}?service=admission-payment&package=basic-application-support#contact" class="btn btn-primary">
+            <a href="{% url 'contact' %}?service=admission-payment&package=basic-application-support" class="btn btn-primary">
                 Choose this option
             </a>
         </div>
@@ -74,7 +74,7 @@
                 <li>Document formatting</li>
             </ul>
 
-            <a href="{% url 'contact' %}?service=application-support&package=standard-application-package#contact" class="btn btn-primary">
+            <a href="{% url 'contact' %}?service=application-support&package=standard-application-package" class="btn btn-primary">
                 Choose this option
             </a>
         </div>
@@ -92,14 +92,16 @@
 
             <p><strong>Best for:</strong> clients working against a close deadline.</p>
 
-            <a href="{% url 'contact' %}?service=application-support&package=priority-application-package#contact" class="btn btn-primary">
+            <a href="{% url 'contact' %}?service=application-support&package=priority-application-package" class="btn btn-primary">
                 Choose this option
             </a>
         </div>
 
-        <div class="price-card">
+       <div class="price-card">
             <h2>Digital Assistance Services</h2>
-            <p>Support for everyday online tasks that may feel confusing, time-consuming, or stressful.</p>
+            <p>
+                Support for everyday online tasks that may feel confusing, time-consuming, or stressful.
+            </p>
 
             <ul>
                 <li>Completing forms</li>
@@ -109,16 +111,78 @@
                 <li>Platform navigation support</li>
             </ul>
 
-            <p><strong>Pricing:</strong> varies depending on the complexity of the task.</p>
-            <p><strong>Best for:</strong> clients who need flexible support outside the listed packages.</p>
+            <p>
+                <strong>Flexible pricing:</strong> Final cost depends on the complexity and time required.
+            </p>
 
-            <a href="{% url 'contact' %}?service=digital-assistance&package=general-digital-assistance#contact" class="btn btn-primary">
+            <p>
+                <strong>Best for:</strong> clients who need flexible support outside the listed packages.
+            </p>
+
+            <a href="{% url 'contact' %}?service=digital-assistance&package=general-digital-assistance" class="btn btn-primary">
                 Choose this option
+            </a>
+        </div>
+
+        <div class="notice-box" style="margin-top: 2.5rem;">
+            <h3>Additional Digital Services</h3>
+            <p>
+                These are common one-off services with starting prices. A clear quote will always be confirmed before work begins.
+            </p>
+
+            <ul>
+                <li><strong>Email writing</strong> — from €25</li>
+                <li><strong>Form filling support</strong> — from €30</li>
+                <li><strong>CV review</strong> — from €50</li>
+                <li><strong>CV creation</strong> — from €100</li>
+                <li><strong>Document formatting</strong> — from €25</li>
+                <li><strong>Course registration and submission support</strong> — from €50</li>
+            </ul>
+
+            <p style="margin-top: 1rem;">
+                <strong>Note:</strong> Final pricing depends on the complexity, urgency, and amount of work involved.
+            </p>
+        </div>
+
+        <div class="notice-box" style="margin-top: 2.5rem;">
+            <h3>Portfolio Website Support</h3>
+            <p>
+                Need a simple, polished portfolio website to showcase your work, skills, or personal brand?
+                I also offer portfolio website support for students and professionals.
+            </p>
+
+            <ul>
+                <li><strong>Starter portfolio website</strong> — from €600</li>
+                <li><strong>Multi-page portfolio website</strong> — quoted based on scope</li>
+            </ul>
+
+            <p style="margin-top: 1rem;">
+                This is ideal for personal brands, student portfolios, CV websites, and simple professional showcases.
+            </p>
+
+            <a href="{% url 'contact' %}?service=portfolio-website" class="btn btn-secondary" style="margin-top: 1rem;">
+                Ask About Portfolio Websites
             </a>
         </div>
        </div>
 
-        <section id="important-info" class="section section-alt">
+         <div class="notice-box" style="margin-top: 3rem;">
+            <h3>Not sure which option to choose?</h3>
+            <p>
+                That is completely okay. Just submit your request with the closest option and I will guide you to the best solution based on your needs.
+            </p>
+
+            <a href="{% url 'contact' %}" class="btn btn-secondary" style="margin-top: 1rem;">
+                Start Your Request
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+                ✔ No obligation • ✔ Friendly support • ✔ Clear communication
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="important-info" class="section section-alt">
     <div class="container">
         <div class="section-heading">
             <p class="section-label">Before You Book</p>
@@ -136,19 +200,5 @@
         </div>
     </div>
 </section>
-
-        <div class="notice-box" style="margin-top: 3rem;">
-            <h3>Not sure which option to choose?</h3>
-            <p>
-                That is completely okay. Just submit your request with the closest option and I will guide you to the best solution based on your needs.
-            </p>
-
-            <a href="{% url 'contact' %}" class="btn btn-secondary" style="margin-top: 1rem;">
-                Start Your Request
-            </a>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
-    ✔ No obligation • ✔ Friendly support • ✔ Clear communication
-</p>
-        </div>
         
 {% endblock %}

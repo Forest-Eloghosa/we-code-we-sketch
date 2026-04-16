@@ -531,6 +531,15 @@ ul {
     margin: 0 auto;
 }
 
+.notice-box ul li {
+    margin-bottom: 0.55rem;
+}
+
+.notice-box h3 {
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+}
+
 .contact-info-box p {
     margin-bottom: 1rem;
 }
