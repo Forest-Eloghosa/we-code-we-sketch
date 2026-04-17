@@ -110,20 +110,38 @@
 
     {% block footer %}
     <footer class="site-footer">
-        <div class="container">
+    <div class="container">
         <div class="social-links">
-            <p>Connect with me :</p>
-                <a href="https://wa.me/353899647256?text=Hi%20Forest,%20I%E2%80%99d%20like%20some%20help%20with%20one%20of%20your%20services.%20Could%20you%20guide%20me?" target="_blank" class="btn btn-secondary">WhatsApp</a>
-                <a href="https://www.instagram.com/wecode_wesketch/?igsh=ZmN2cXBna3lia2Nm&utm_source=qr" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-                <a href="https://linktr.ee/wecodewesketch" target="_blank" class="btn btn-secondary">All links</a>
-            </div>
+            <span class="footer-heading">Connect with me:</span>
 
-            <p id="footer-text">&copy; 2026 We Code We Sketch. All rights reserved.</p>
-            <p style="text-align:center; margin-top:1rem;">
-                Trusted by students and individuals needing clear, reliable digital support.
-            </p>
+            <a href="https://wa.me/353899647256?text=Hi%20Forest,%20I%E2%80%99d%20like%20some%20help%20with%20one%20of%20your%20services.%20Could%20you%20guide%20me?"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="footer-link">
+               WhatsApp
+            </a>
+
+            <a href="https://www.instagram.com/wecodewesketch/?igsh=ZmN2cXBna3lia2Nm&utm_source=qr"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="footer-link">
+               Instagram
+            </a>
+
+            <a href="https://linktr.ee/wecodewesketch"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="footer-link">
+               All links
+            </a>
         </div>
-    </footer>
+
+        <p id="footer-text">&copy; 2026 We Code We Sketch. All rights reserved.</p>
+        <p class="footer-support-text">
+            Trusted by students and individuals needing clear, reliable digital support.
+        </p>
+    </div>
+</footer>
     {% endblock %}
 
     <script src="{% static 'core/js/script.js' %}"></script>
