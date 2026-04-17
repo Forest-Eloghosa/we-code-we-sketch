@@ -27,7 +27,21 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")
 
 DEBUG = False
 
-ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [
+    ".herokuapp.com",
+    "localhost",
+    "127.0.0.1",
+    "wecodewesketch.com",
+    "www.wecodewesketch.com",
+    "wecodewesketch.ie",
+    "www.wecodewesketch.ie",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://wecodewesketch.com",
+    "https://www.wecodewesketch.com",
+    "https://wecodewesketch.ie",
+    "https://www.wecodewesketch.ie",
+]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
