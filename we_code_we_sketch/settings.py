@@ -36,11 +36,14 @@ ALLOWED_HOSTS = [
     "wecodewesketch.ie",
     "www.wecodewesketch.ie",
 ]
+
 CSRF_TRUSTED_ORIGINS = [
     "https://wecodewesketch.com",
     "https://www.wecodewesketch.com",
     "https://wecodewesketch.ie",
     "https://www.wecodewesketch.ie",
+    "http://127.0.0.1",
+    "http://localhost",
 ]
 
 INSTALLED_APPS = [
@@ -59,6 +62,7 @@ LOGIN_URL = "login"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'core.middleware.ForcePrimaryDomainMiddleware',
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -133,5 +137,14 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+if DEBUG:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+else:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

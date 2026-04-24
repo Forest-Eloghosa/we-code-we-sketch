@@ -245,6 +245,20 @@ ul {
     font-size: 1.05rem;
 }
 
+.hero-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 750px;
+    color: #222;
+}
+
+.hero-subdescription {
+    font-size: 1rem;
+    color: #ba5a87;
+    margin-top: 1rem;
+}
+
+
 /* =========================================
    7. LABELS / BADGES
 ========================================= */
@@ -457,8 +471,20 @@ ul {
 .feature-grid,
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+}
+
+.card-grid,
+.pricing-grid,
+.feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-content: center;
 }
 
 .contact-grid,
@@ -629,12 +655,18 @@ ul {
 .testimonial-text {
     font-style: italic;
     margin-bottom: 1rem;
+    max-width: 500px;
 }
 
 .testimonial-name {
     font-weight: 700;
     color: var(--accent);
 }
+
+.testimonial-card {
+    height: 100%;
+}
+
 
 /* =========================================
    16. FORMS
@@ -773,7 +805,7 @@ ul {
 
 #footer-text,
 .footer-support-text {
-    margin-top: 0.75rem;
+    margin-top: 1rem;
 }
 
 .footer-support-text {
@@ -781,6 +813,66 @@ ul {
     margin-left: auto;
     margin-right: auto;
 }
+
+/* ========================================= 
+Floating WhatsApp button 
+========================================= */
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background-color: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.85rem 1rem;
+    border-radius: 999px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.whatsapp-float:visited {
+    color: #ffffff;
+}
+
+.whatsapp-tooltip {
+    font-size: 0.95rem;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.whatsapp-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.whatsapp-float {
+    animation: whatsapp-pulse 2s infinite;
+}
+
+@keyframes whatsapp-pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
 
 /* =========================================
    18. DASHBOARD
@@ -1122,6 +1214,24 @@ ul {
         width: 100%;
         max-width: 220px;
         justify-content: center;
+    }
+
+        .whatsapp-float {
+        right: 16px;
+        bottom: 16px;
+        padding: 0.9rem;
+        border-radius: 50%;
+        width: 64px;
+        height: 64px;
+        justify-content: center;
+    }
+
+    .whatsapp-tooltip {
+        display: none;
+    }
+
+    .whatsapp-icon {
+        font-size: 1.4rem;
     }
 }
 
