@@ -1,18 +1,20 @@
 ﻿# We Code We Sketch
 
-We Code We Sketch is a digital support and application assistance website created for students and individuals in Ireland and worldwide.
+We Code We Sketch is a full-stack web application providing digital support and application assistance for students and individuals in Ireland and worldwide.
 
 The website provides clear information about services such as CV support, application guidance, digital task assistance, and simple portfolio website support. It also gives visitors an easy way to make enquiries through a contact form or WhatsApp.
 
 ## Live Site
+[![Live Site](https://img.shields.io/badge/Live%20Site-Visit-green)](https://www.wecodewesketch.com/)
 
-[Visit We Code We Sketch](https://www.wecodewesketch.com/)
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Django](https://img.shields.io/badge/Django-4.2-green)
 
 ![We Code We Sketch Finished Site](./core/static/core/images/we-code-we-sketch-mock-up.png "We Code We Sketch Finished Site")
 
 ## Project Purpose
 
-The purpose of this website is to create a professional online presence for We Code We Sketch and make it easier for clients to understand available services, view pricing, read testimonials, and request support.
+The purpose of this project is to establish a professional digital presence for We Code We Sketch and provide users with a clear, accessible way to understand services, view pricing, read testimonials, and request support.
 
 
 ## Project Highlights
@@ -22,6 +24,7 @@ The purpose of this website is to create a professional online presence for We C
 - Built a user-friendly contact system with WhatsApp integration
 - Focused on real-world usability and client conversion
 - Created a responsive and accessible UI for all devices
+- Designed with a strong focus on emotional clarity, accessibility, and user trust
   
 ## Key Features
 
@@ -102,7 +105,7 @@ python manage.py runserver
 
 Then open in your browser:
 ```bash
-[Then open:](http://127.0.0.1:8000/)
+Then open: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 ```
 
 ## Future Improvements
@@ -120,7 +123,7 @@ Then open in your browser:
 
 ### Author
 
-Created by Forest Eloghosa.
+Created and maintained by Forest Eloghosa.
 
 ### Status
 
