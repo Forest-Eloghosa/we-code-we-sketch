@@ -3,7 +3,8 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from django.core.exceptions import PermissionDenied
 from django.conf import settings
 from django.template.loader import render_to_string
-
+from django.utils import timezone
+from django.views.decorators.cache import cache_control
 from .models import ClientRequest
 from .forms import ClientRequestForm
 
@@ -160,12 +161,13 @@ def dashboard(request):
     completed_requests = requests.filter(status="completed").count()
 
     context = {
-        "requests": requests,
-        "total_requests": total_requests,
-        "new_requests": new_requests,
-        "in_progress_requests": in_progress_requests,
-        "completed_requests": completed_requests,
-    }
+    "requests": requests,
+    "total_requests": total_requests,
+    "new_requests": new_requests,
+    "in_progress_requests": in_progress_requests,
+    "completed_requests": completed_requests,
+    "today": timezone.now().date(),
+}
 
     return render(request, "core/dashboard.html", context)
 
@@ -212,6 +214,7 @@ def delete_request(request, request_id):
         {"client_request": client_request},
     )
 
+@cache_control(private=True, max_age=60)
 def contact(request):
     selected_service = request.GET.get("service")
     selected_package = request.GET.get("package")

@@ -16,7 +16,6 @@
 
         <div class="contact-grid">
 
-            <!-- LEFT SIDE (INFO) -->
             <div class="contact-info-box">
                 <h3>Get in touch</h3>
 
@@ -47,10 +46,10 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE (FORM) -->
             <div>
                 <form class="contact-form" method="POST">
                     {% csrf_token %}
+                    {{ form.website }}
 
                     <p class="form-intro">
                         Tell me what you need support with and I will guide you through the next steps.
@@ -63,7 +62,7 @@
                         </div>
                     {% endif %}
 
-                    {% for field in form %}
+                    {% for field in form.visible_fields %}
                         <div class="form-group{% if field.errors %} has-error{% endif %}">
                             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                             {{ field }}
@@ -76,7 +75,6 @@
                     <p class="form-trust">
                         ✔ No obligation • ✔ Clear communication • ✔ Tailored support
                     </p>
-                    
 
                     <button type="submit" class="btn btn-primary btn-full">
                         Send Your Request

@@ -19,7 +19,7 @@
 
     {% block extra_head %}{% endblock %}
 </head>
-<body>
+<body id="top">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     {% block header %}
@@ -27,7 +27,12 @@
         <div class="container">
             <nav class="navbar" aria-label="Main navigation">
                 <a href="{% url 'home' %}" class="logo">
-                    <img src="{% static 'core/images/wecode_wesketch_logo.png' %}" alt="We Code We Sketch logo">
+                    <img 
+                        src="{% static 'core/images/wecode_wesketch_logo.png' %}" 
+                        alt="We Code We Sketch logo"
+                        width="72"
+                        height="72"
+                    >
                 </a>
 
                 <button
@@ -179,6 +184,11 @@ document.addEventListener("DOMContentLoaded", function () {
 >
     <span class="whatsapp-tooltip">Need help? Chat on WhatsApp</span>
     <i class="fab fa-whatsapp whatsapp-icon"></i>
-</a>  
+</a>
+
+<a href="#top" class="back-to-top" aria-label="Back to top">
+    ↑
+</a>
+
 </body>
 </html>

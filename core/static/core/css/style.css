@@ -33,11 +33,98 @@ img {
 }
 
 a {
+    color: #7a1f3d;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+a:hover,
+a:focus {
+    color: #5c162e;
+    text-decoration-thickness: 2px;
+}
+
+/* =========================================
+Keep buttons and navigation clean 
+========================================= */
+.btn,
+.btn:hover,
+.btn:focus,
+.btn:visited,
+.nav-links a,
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a:visited,
+.footer-link,
+.footer-link:hover,
+.footer-link:focus,
+.footer-link:visited,
+.whatsapp-float,
+.whatsapp-float:hover,
+.whatsapp-float:focus,
+.whatsapp-float:visited,
+.back-to-top,
+.back-to-top:hover,
+.back-to-top:focus,
+.back-to-top:visited {
     text-decoration: none;
 }
 
+a.btn,
+a.btn:hover,
+a.btn:focus,
+a.btn:visited {
+    text-decoration: none;
+}
+
+a.btn-primary,
+a.btn-primary:hover,
+a.btn-primary:focus,
+a.btn-primary:visited {
+    color: #ffffff;
+}
+
+a.btn-secondary {
+    color: var(--accent);
+}
+
+a.btn-secondary:hover,
+a.btn-secondary:focus {
+    color: #ffffff;
+}
+
+
 ul {
     padding-left: 1.2rem;
+}
+
+.back-to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 96px;
+    z-index: 999;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.back-to-top:hover,
+.back-to-top:focus,
+.back-to-top:visited {
+    background-color: var(--accent-dark);
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-2px);
 }
 
 /* =========================================
@@ -178,6 +265,7 @@ ul {
     border-radius: 2px;
     transition: width 0.25s ease;
 }
+
 
 .nav-links a:hover::after,
 .nav-links a.active::after {
@@ -333,46 +421,78 @@ ul {
     justify-content: center;
     gap: 0.5rem;
     min-height: 48px;
-    padding: 0.85rem 1.4rem;
-    border-radius: 12px;
-    font-weight: 700;
+    padding: 0.9rem 1.5rem;
+    border-radius: 14px;
+    font-weight: 800;
     font-size: 1rem;
     line-height: 1;
     cursor: pointer;
-    transition: all 0.2s ease;
+    text-decoration: none;
     border: none;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* soft laminated shine */
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.28),
+        rgba(255, 255, 255, 0.04) 45%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    z-index: -1;
+    pointer-events: none;
 }
 
 .btn:focus {
-    outline: 3px solid rgba(139, 46, 86, 0.18);
-    outline-offset: 2px;
+    outline: 3px solid rgba(139, 46, 86, 0.25);
+    outline-offset: 3px;
 }
 
 .btn-primary {
-    background-color: var(--accent);
-    color: var(--white);
-    box-shadow: 0 10px 22px rgba(139, 46, 86, 0.22);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #ffffff;
+    box-shadow:
+        0 10px 22px rgba(139, 46, 86, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-    background-color: var(--accent-dark);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, var(--accent-dark), #551832);
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow:
+        0 16px 32px rgba(139, 46, 86, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
 }
 
 .btn-secondary {
-    background-color: transparent;
+    background: rgba(255, 255, 255, 0.85);
     color: var(--accent);
     border: 2px solid var(--accent);
-    box-shadow: none;
+    box-shadow:
+        0 8px 18px rgba(139, 46, 86, 0.10),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
+
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-    background-color: var(--accent);
-    color: var(--white);
-    transform: translateY(-1px);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    color: #ffffff;
+    text-decoration: none;
+    transform: translateY(-3px);
+    box-shadow:
+        0 16px 32px rgba(139, 46, 86, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
 .btn-danger {
@@ -395,6 +515,13 @@ ul {
 
 .btn-full {
     width: 100%;
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow:
+        0 6px 14px rgba(139, 46, 86, 0.20),
+        inset 0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 /* =========================================
@@ -649,6 +776,59 @@ ul {
     margin-bottom: 3rem;
 }
 
+.price-summary h2 {
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.price-list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.price-list-grid div {
+    border: 1px solid var(--accent-soft-border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    background-color: #fcfafb;
+}
+
+.price-list-grid h3 {
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.price-list-grid p {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.45rem;
+    border-bottom: 1px dashed var(--accent-soft-border);
+    padding-bottom: 0.35rem;
+}
+
+.price-list-grid p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.price-list-grid strong {
+    white-space: nowrap;
+    color: var(--text-main);
+}
+
+@media screen and (max-width: 768px) {
+    .price-list-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-list-grid p {
+        align-items: flex-start;
+    }
+}
+
 /* =========================================
    15. TESTIMONIALS
 ========================================= */
@@ -825,25 +1005,30 @@ Floating WhatsApp button
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
-    background-color: #25d366;
+    background-color: #0b7f3a;
     color: #ffffff;
     text-decoration: none;
-    font-weight: 600;
-    padding: 0.85rem 1rem;
-    border-radius: 999px;
+    font-weight: 700;
+    padding: 12px 18px;
+    border-radius: 30px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: whatsapp-pulse 2s infinite;
 }
 
-.whatsapp-float:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+.whatsapp-float span,
+.whatsapp-tooltip {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.whatsapp-float:hover,
+.whatsapp-float:focus,
+.whatsapp-float:visited {
+    background-color: #096b31;
     color: #ffffff;
     text-decoration: none;
-}
-
-.whatsapp-float:visited {
-    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .whatsapp-tooltip {
@@ -857,22 +1042,17 @@ Floating WhatsApp button
     line-height: 1;
 }
 
-.whatsapp-float {
-    animation: whatsapp-pulse 2s infinite;
-}
-
 @keyframes whatsapp-pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+        box-shadow: 0 0 0 0 rgba(11, 127, 58, 0.5);
     }
     70% {
-        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 10px rgba(11, 127, 58, 0);
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        box-shadow: 0 0 0 0 rgba(11, 127, 58, 0);
     }
 }
-
 
 /* =========================================
    18. DASHBOARD
@@ -1216,23 +1396,31 @@ Floating WhatsApp button
         justify-content: center;
     }
 
-        .whatsapp-float {
-        right: 16px;
-        bottom: 16px;
-        padding: 0.9rem;
-        border-radius: 50%;
-        width: 64px;
-        height: 64px;
-        justify-content: center;
-    }
+.whatsapp-float {
+    right: 16px;
+    bottom: 16px;
+    padding: 0.9rem;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    justify-content: center;
+}
 
-    .whatsapp-tooltip {
-        display: none;
-    }
+.whatsapp-tooltip {
+    display: none;
+}
 
-    .whatsapp-icon {
-        font-size: 1.4rem;
-    }
+.whatsapp-icon {
+    font-size: 1.6rem;
+}
+
+.back-to-top {
+    right: 16px;
+    bottom: 92px;
+    width: 48px;
+    height: 48px;
+}
+
 }
 
 /* Phones */

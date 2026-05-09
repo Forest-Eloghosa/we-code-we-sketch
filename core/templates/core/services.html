@@ -3,6 +3,10 @@
 
 {% block title %}Services & Pricing | We Code We Sketch{% endblock %}
 
+{% block meta_description %}
+View We Code We Sketch services and pricing for CV support, student application support, travel documentation support, digital assistance, consultations, and portfolio websites in Ireland and worldwide.
+{% endblock %}
+
 {% block content %}
 <section class="section">
     <div class="container">
@@ -10,145 +14,229 @@
             <p class="section-label">Services & Pricing</p>
             <h1>Clear support options to match your needs</h1>
             <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted);">
-                No hidden fees. You will always know exactly what you are paying for.
+                Choose the level of support that fits your situation. If you are unsure which option is right for you, send your request and I will guide you.
             </p>
             <p style="margin-top: 0.5rem; font-size: 0.95rem; color: var(--text-muted);">
-                Choose the level of support that fits your situation. If you are unsure which option is right for you, send your request and I will guide you.
+                No hidden fees. A clear quote will always be confirmed before work begins.
             </p>
         </div>
 
         <div class="pricing-stack">
-        <div class="price-card">
-            <h2>Express Assistance — €100</h2>
-            <p>For one-off digital tasks that need clear and practical support.</p>
 
-            <ul>
-                <li>Filling out a form</li>
-                <li>Writing or replying to an email</li>
-                <li>Uploading documents</li>
-                <li>Registering for an online service</li>
-            </ul>
+            <div class="price-card">
+                <h2>Consultation — from €25</h2>
+                <p>
+                    For clients who are unsure where to start and need clear guidance before choosing a service.
+                </p>
 
-            <p><strong>Best for:</strong> quick tasks that do not require full application support.</p>
+                <ul>
+                    <li>Initial review of your situation</li>
+                    <li>Guidance on the best support option</li>
+                    <li>Clear explanation of next steps</li>
+                    <li>Document checklist where needed</li>
+                </ul>
 
-            <a href="{% url 'contact' %}?service=digital-assistance&package=express-assistance" class="btn btn-primary">
-                Choose this option
-            </a>
+                <p><strong>Best for:</strong> clients who need direction before committing to a full service.</p>
+
+                <p>
+                    <strong>Note:</strong> The consultation fee may be deducted from your final service fee if you proceed with a full package.
+                </p>
+
+                <a href="{% url 'contact' %}?service=consultation&package=consultation" class="btn btn-primary">
+                    Book a Consultation
+                </a>
+            </div>
+
+            <div class="price-card">
+                <h2>CV Support — from €50</h2>
+                <p>
+                    For clients who need their CV reviewed, improved, created from scratch, or rebuilt into a clearer professional format.
+                </p>
+
+                <ul>
+                    <li>CV review and structure improvements</li>
+                    <li>Grammar, wording, and layout support</li>
+                    <li>CV creation from scratch where needed</li>
+                    <li>Tailoring advice for jobs, courses, or applications</li>
+                </ul>
+
+                <p><strong>Starting prices:</strong> CV review from €50 • CV creation from €100</p>
+                <p><strong>Best for:</strong> students, job seekers, and applicants who need a stronger CV.</p>
+
+                <a href="{% url 'contact' %}?service=cv-review&package=cv-review" class="btn btn-primary">
+                    Request CV Support
+                </a>
+            </div>
+
+            <div class="price-card">
+                <h2>Basic Application Support — €200</h2>
+                <p>
+                    For clients who mainly need help completing an admission payment or basic application step correctly.
+                </p>
+
+                <ul>
+                    <li>Guidance through the required online step</li>
+                    <li>Help using the relevant portal</li>
+                    <li>Support to reduce mistakes during submission</li>
+                </ul>
+
+                <p><strong>Best for:</strong> clients who already know what they need to submit but want help completing the process.</p>
+                <p><strong>Note:</strong> Admission, application, or institutional fees are not included.</p>
+
+                <a href="{% url 'contact' %}?service=admission-payment&package=basic-application-support" class="btn btn-primary">
+                    Choose this option
+                </a>
+            </div>
+
+            <div class="price-card featured-card">
+                <h2>Standard Application Package — €350</h2>
+                <p>
+                    For clients who want full support with an application from start to submission.
+                </p>
+
+                <ul>
+                    <li>Application form support</li>
+                    <li>CV review and improvement</li>
+                    <li>Submission guidance</li>
+                    <li>Document organisation</li>
+                    <li>Clear communication throughout the process</li>
+                </ul>
+
+                <p><strong>Best for:</strong> clients who want a complete and guided support experience.</p>
+
+                <a href="{% url 'contact' %}?service=application-support&package=standard-application-package" class="btn btn-primary">
+                    Choose this option
+                </a>
+            </div>
+
+            <div class="price-card">
+                <h2>Priority Application Package — €450</h2>
+                <p>
+                    For urgent applications that need faster attention and deadline-focused support.
+                </p>
+
+                <ul>
+                    <li>Full application support</li>
+                    <li>CV review</li>
+                    <li>Priority handling</li>
+                    <li>Deadline-focused submission support</li>
+                </ul>
+
+                <p><strong>Best for:</strong> clients working against a close deadline.</p>
+
+                <a href="{% url 'contact' %}?service=application-support&package=priority-application-package" class="btn btn-primary">
+                    Choose this option
+                </a>
+            </div>
+
+            <div class="price-card">
+                <h2>Travel Documentation & Application Support — from €80</h2>
+                <p>
+                    Support with organising documents, completing online forms, and navigating travel-related application systems.
+                </p>
+
+                <ul>
+                    <li>Tourism/travel application form support</li>
+                    <li>Work-related application document preparation</li>
+                    <li>Document organisation and formatting</li>
+                    <li>Online upload and submission support</li>
+                    <li>General process guidance</li>
+                </ul>
+
+                <p>
+                    <strong>Important:</strong> This is document and application support only.
+                    I do not provide legal, visa, or immigration advice.
+                </p>
+
+                <p><strong>Best for:</strong> clients who already know what they need to apply for but need help organising and completing the online process.</p>
+
+                <a href="{% url 'contact' %}?service=travel-documentation&package=travel-documentation-support" class="btn btn-primary">
+                    Request Support
+                </a>
+            </div>
+
+            <div class="price-card">
+                <h2>Express Digital Assistance — €100</h2>
+                <p>
+                    For one-off digital tasks that need clear and practical support.
+                </p>
+
+                <ul>
+                    <li>Filling out a form</li>
+                    <li>Writing or replying to an email</li>
+                    <li>Uploading documents</li>
+                    <li>Registering for an online service</li>
+                </ul>
+
+                <p><strong>Best for:</strong> quick tasks that do not require full application support.</p>
+
+                <a href="{% url 'contact' %}?service=digital-assistance&package=express-assistance" class="btn btn-primary">
+                    Choose this option
+                </a>
+            </div>
         </div>
 
-        <div class="price-card">
-            <h2>Basic Application Support — €200</h2>
-            <p>For clients who mainly need help completing an admission payment correctly.</p>
-
-            <ul>
-                <li>Guidance through the admission payment process</li>
-                <li>Help using the payment portal</li>
-                <li>Support to avoid mistakes during submission</li>
-            </ul>
-
-            <p><strong>Best for:</strong> those who already have their application in place and need payment support only.</p>
-            <p><strong>Note:</strong> Admission fees are not included.</p>
-
-            <a href="{% url 'contact' %}?service=admission-payment&package=basic-application-support" class="btn btn-primary">
-                Choose this option
-            </a>
-        </div>
-
-        <div class="price-card featured-card">
-            <h2>Standard Application Package — €350</h2>
-            <p>For clients who want full support with an application from start to submission.</p>
-
-            <ul>
-                <li>Application form support</li>
-                <li>CV review and improvement</li>
-                <li>Submission guidance</li>
-                <li>Clear communication throughout the process</li>
-            </ul>
-
-            <p><strong>Best for:</strong> clients who want a more complete and guided support experience.</p>
-
-            <p><strong>Optional add-ons:</strong></p>
-            <ul>
-                <li>CV creation</li>
-                <li>Personal statement editing</li>
-                <li>Document formatting</li>
-            </ul>
-
-            <a href="{% url 'contact' %}?service=application-support&package=standard-application-package" class="btn btn-primary">
-                Choose this option
-            </a>
-        </div>
-
-        <div class="price-card">
-            <h2>Priority Application Package — €450</h2>
-            <p>For urgent applications that need faster attention and deadline-focused support.</p>
-
-            <ul>
-                <li>Full application support</li>
-                <li>CV review</li>
-                <li>Priority handling</li>
-                <li>Deadline-focused submission support</li>
-            </ul>
-
-            <p><strong>Best for:</strong> clients working against a close deadline.</p>
-
-            <a href="{% url 'contact' %}?service=application-support&package=priority-application-package" class="btn btn-primary">
-                Choose this option
-            </a>
-        </div>
-
-       <div class="price-card">
-            <h2>Digital Assistance Services</h2>
+        <div class="notice-box price-summary" style="margin-top: 3rem;">
+            <h2>Quick Price Guide</h2>
             <p>
-                Support for everyday online tasks that may feel confusing, time-consuming, or stressful.
+                A simple pricing overview to help you understand where your request may fit.
+                Final prices are confirmed before work begins.
             </p>
 
-            <ul>
-                <li>Completing forms</li>
-                <li>Email writing</li>
-                <li>Course registration</li>
-                <li>Document formatting</li>
-                <li>Platform navigation support</li>
-            </ul>
+            <div class="price-list-grid">
+                <div>
+                    <h3>CV Support</h3>
+                    <p><span>CV review</span> <strong>from €50</strong></p>
+                    <p><span>CV improvement</span> <strong>€50 – €80</strong></p>
+                    <p><span>Full CV creation</span> <strong>from €100</strong></p>
+                </div>
 
-            <p>
-                <strong>Flexible pricing:</strong> Final cost depends on the complexity and time required.
+                <div>
+                    <h3>Student & Course Assistance</h3>
+                    <p><span>Course/application review before submission</span> <strong>from €50</strong></p>
+                    <p><span>Course registration support</span> <strong>from €50</strong></p>
+                    <p><span>Basic application support</span> <strong>€200</strong></p>
+                    <p><span>Full application support</span> <strong>€350 – €450</strong></p>
+                </div>
+
+                <div>
+                    <h3>Travel Documentation</h3>
+                    <p><span>Document organisation</span> <strong>from €80</strong></p>
+                    <p><span>Form completion support</span> <strong>from €100</strong></p>
+                    <p><span>Full travel application support</span> <strong>from €300</strong></p>
+                </div>
+
+                <div>
+                    <h3>Digital Assistance</h3>
+                    <p><span>Email writing</span> <strong>from €25</strong></p>
+                    <p><span>Document formatting</span> <strong>from €25</strong></p>
+                    <p><span>Form filling support</span> <strong>from €30</strong></p>
+                    <p><span>Platform navigation support</span> <strong>quoted</strong></p>
+                </div>
+
+                <div>
+                    <h3>Consultation</h3>
+                    <p><span>Initial consultation</span> <strong>from €25</strong></p>
+                    <p><span>International payment consultation</span> <strong>from €30</strong></p>
+                </div>
+
+                <div>
+                    <h3>Portfolio Websites</h3>
+                    <p><span>Starter portfolio website</span> <strong>from €600</strong></p>
+                    <p><span>Multi-page website</span> <strong>quoted</strong></p>
+                </div>
+            </div>
+
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
+                Final prices depend on complexity, urgency, number of documents, currency conversion costs,
+                and the level of support required. A clear quote will always be confirmed before work begins.
             </p>
-
-            <p>
-                <strong>Best for:</strong> clients who need flexible support outside the listed packages.
-            </p>
-
-            <a href="{% url 'contact' %}?service=digital-assistance&package=general-digital-assistance" class="btn btn-primary">
-                Choose this option
-            </a>
         </div>
 
-        <div class="notice-box" style="margin-top: 2.5rem;">
-            <h3>Additional Digital Services</h3>
-            <p>
-                These are common one-off services with starting prices. A clear quote will always be confirmed before work begins.
-            </p>
-
-            <ul>
-                <li><strong>Email writing</strong> — from €25</li>
-                <li><strong>Form filling support</strong> — from €30</li>
-                <li><strong>CV review</strong> — from €50</li>
-                <li><strong>CV creation</strong> — from €100</li>
-                <li><strong>Document formatting</strong> — from €25</li>
-                <li><strong>Course registration and submission support</strong> — from €50</li>
-            </ul>
-
-            <p style="margin-top: 1rem;">
-                <strong>Note:</strong> Final pricing depends on the complexity, urgency, and amount of work involved.
-            </p>
-        </div>
-
-        <div class="notice-box" style="margin-top: 2.5rem;">
+        <div class="notice-box" style="margin-top: 3rem;">
             <h3>Portfolio Website Support</h3>
             <p>
-                Need a simple, polished portfolio website to showcase your work, skills, or personal brand?
-                I also offer portfolio website support for students and professionals.
+                I also design simple, polished portfolio websites for students, job seekers, freelancers, and professionals who want to showcase their work or personal brand.
             </p>
 
             <ul>
@@ -156,25 +244,21 @@
                 <li><strong>Multi-page portfolio website</strong> — quoted based on scope</li>
             </ul>
 
-            <p style="margin-top: 1rem;">
-                This is ideal for personal brands, student portfolios, CV websites, and simple professional showcases.
-            </p>
-
-            <a href="{% url 'contact' %}?service=portfolio-website" class="btn btn-secondary" style="margin-top: 1rem;">
+            <a href="{% url 'contact' %}?service=portfolio-website&package=portfolio-website" class="btn btn-secondary" style="margin-top: 1rem;">
                 Ask About Portfolio Websites
             </a>
         </div>
-       </div>
 
-         <div class="notice-box" style="margin-top: 3rem;">
+        <div class="notice-box" style="margin-top: 3rem;">
             <h3>Not sure which option to choose?</h3>
             <p>
-                That is completely okay. Just submit your request with the closest option and I will guide you to the best solution based on your needs.
+                That is completely okay. Submit your request with the closest option and I will guide you to the best solution based on your needs.
             </p>
 
             <a href="{% url 'contact' %}" class="btn btn-secondary" style="margin-top: 1rem;">
                 Start Your Request
             </a>
+
             <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted);">
                 ✔ No obligation • ✔ Friendly support • ✔ Clear communication
             </p>
@@ -192,13 +276,14 @@
         <div class="notice-box">
             <ul>
                 <li>Services do not guarantee admission into any institution.</li>
-                <li>Visa or immigration services are not provided.</li>
-                <li>Admission fees are not included in service fees.</li>
+                <li>Travel and visa-related support is limited to document organisation, form completion, and online application assistance.</li>
+                <li>No legal, visa, or immigration advice is provided.</li>
+                <li>I do not guarantee visa approval, admission, or application success.</li>
+                <li>Admission, application, travel, visa, or institutional fees are not included in service fees.</li>
                 <li>Service fees are non-refundable once work has started.</li>
-                <li>Additional charges may apply for extra documents or currency conversion costs.</li>
+                <li>Additional charges may apply for extra documents, urgent requests, or currency conversion costs.</li>
             </ul>
         </div>
     </div>
 </section>
-        
 {% endblock %}

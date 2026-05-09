@@ -81,12 +81,24 @@
                                     </td>
                                     <td>
                                         {% if request_item.deadline %}
-                                            {{ request_item.deadline }}
+                                            {% if request_item.deadline < today %}
+                                                <span class="deadline overdue">
+                                                    Overdue — {{ request_item.deadline|date:"d M Y" }}
+                                                </span>
+                                            {% elif request_item.deadline <= today|add:"3" %}
+                                                <span class="deadline urgent">
+                                                    {{ request_item.deadline|date:"d M Y" }} (Soon)
+                                                </span>
+                                            {% else %}
+                                                <span class="deadline normal">
+                                                    {{ request_item.deadline|date:"d M Y" }}
+                                                </span>
+                                            {% endif %}
                                         {% else %}
-                                            —
+                                            Not provided
                                         {% endif %}
                                     </td>
-                                    <td>{{ request_item.created_at|date:"d M Y, H:i" }}</td>
+                                    <td>{{ request_item.created_at|date:"d M Y" }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

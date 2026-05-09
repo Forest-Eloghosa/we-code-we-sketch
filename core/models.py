@@ -8,6 +8,9 @@ class ClientRequest(models.Model):
         ("admission-payment", "Admission Payment Assistance"),
         ("cv-review", "CV Review"),
         ("portfolio-website", "Portfolio Website"),
+        ("consultation", "Consultation"),
+        ("travel-documentation", "Travel Documentation & Application Support"),
+        ("cv-creation", "CV Creation"),
     ]
 
     PACKAGE_CHOICES = [
@@ -16,6 +19,11 @@ class ClientRequest(models.Model):
         ("standard-application-package", "Standard Application Package"),
         ("priority-application-package", "Priority Application Package"),
         ("general-digital-assistance", "General Digital Assistance"),
+        ("consultation", "Consultation"),
+        ("cv-creation", "CV Creation"),
+        ("cv-review", "CV Review"),
+        ("travel-documentation-support", "Travel Documentation Support"),
+        ("portfolio-website", "Portfolio Website"),
     ]
 
     STATUS_CHOICES = [
@@ -29,7 +37,7 @@ class ClientRequest(models.Model):
     phone = models.CharField(max_length=20, blank=True)
     service = models.CharField(max_length=50, choices=SERVICE_CHOICES)
     package = models.CharField(max_length=50, choices=PACKAGE_CHOICES, blank=True)
-    deadline = models.CharField(max_length=100, blank=True)
+    deadline = models.DateField(blank=True, null=True)
     message = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="new")
     created_at = models.DateTimeField(auto_now_add=True)
